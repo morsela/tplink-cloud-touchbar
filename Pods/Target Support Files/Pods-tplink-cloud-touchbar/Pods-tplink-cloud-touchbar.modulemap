@@ -1,0 +1,6 @@
+module Pods_tplink_cloud_touchbar {
+  umbrella header "Pods-tplink-cloud-touchbar-umbrella.h"
+
+  export *
+  module * { export * }
+}
