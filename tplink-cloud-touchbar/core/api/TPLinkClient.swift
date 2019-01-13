@@ -13,8 +13,8 @@ enum APIResult<T> {
     case failure(Error)
 }
 
-typealias DataCompletion = (APIResult<Data>) -> Void
-typealias Completion = (APIResult<Void>) -> Void
+typealias CompletionWith<T> = (APIResult<T>) -> Void
+typealias Completion = CompletionWith<Void>
 
 public struct APIError: Error {
     public let message: String
@@ -102,7 +102,7 @@ class TPLinkClient {
         }
     }
     
-    func run(deviceId: String, command: String, appServerUrl: String, completion: @escaping DataCompletion) {
+    func run(_ command: String, deviceId: String, appServerUrl: String, completion: @escaping CompletionWith<Data>) {
         let parameters: [String: Any] = [
             "method": "passthrough",
             "params": [
@@ -120,6 +120,22 @@ class TPLinkClient {
                 if let response = try? decoder.decode(RunResponse.self, from: data),
                     let responseData = response.result.responseData.data(using: .utf8) {
                     completion(.success(responseData))
+                } else {
+                    completion(.failure(APIError("json parse error")))
+                }
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    public func run<T: Decodable>(_ command: String, deviceId: String, appServerUrl: String, responseType: T.Type, completion: @escaping (APIResult<T>) -> Void) {
+        run(command, deviceId: deviceId, appServerUrl: appServerUrl) { result in
+            switch result {
+            case .success(let data):
+                let decoder = JSONDecoder()
+                if let decodedResponseData = try? decoder.decode(responseType, from: data) {
+                    completion(.success(decodedResponseData))
                 } else {
                     completion(.failure(APIError("json parse error")))
                 }

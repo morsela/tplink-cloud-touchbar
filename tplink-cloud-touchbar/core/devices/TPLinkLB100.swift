@@ -9,7 +9,7 @@
 import Cocoa
 
 class TPLinkLB100: TPLinkDevice & BulbDevice {
-    var brightness: Int32 = 100
+    var brightness: Int = 100
     
     public override func powerOn(completion: @escaping (APIResult<Void>) -> Void) {
         setState(isOn: true, completion: completion)
@@ -20,44 +20,32 @@ class TPLinkLB100: TPLinkDevice & BulbDevice {
     }
     
     private func setState(isOn: Bool, brightness: Int = 100, completion: @escaping Completion) {
-        run(command: "{\"smartlife.iot.smartbulb.lightingservice\":{\"transition_light_state\":{ \"brightness\": \(brightness) , \"on_off\": \(isOn ? "1" : "0")}}}") { [weak self] result in
+        run("{\"smartlife.iot.smartbulb.lightingservice\":{\"transition_light_state\":{ \"brightness\": \(brightness) , \"on_off\": \(isOn ? "1" : "0")}}}", responseType: SetStateResponse.self) { [weak self] result in
             switch result {
             case .success(let data):
-                let decoder = JSONDecoder()
-                if let decodedResponseData = try? decoder.decode(SetStateResponse.self, from: data) {
-                    self?.updateState(decodedResponseData.lightingService.lightState)
-
-                    completion(.success(Void()))
-                } else {
-                    completion(.failure(APIError("json parse error")))
-                }
+                self?.updateState(data.lightingService.lightState)
             case .failure(let error):
                 completion(.failure(error))
             }
         }
     }
     
-    func setBrightness(_ brightness: Int32, completion: @escaping Completion) {
-        setState(isOn: true, brightness: Int(brightness), completion: completion)
+    func setBrightness(_ brightness: Int, completion: @escaping Completion) {
+        setState(isOn: true, brightness: brightness, completion: completion)
     }
     
     private func updateState(_ state: LightState) {
-        self.brightness = Int32(state.brightness ?? state.dftOnState?.brightness ?? 100)
+        self.brightness = state.brightness ?? state.dftOnState?.brightness ?? 100
         self.state = State(rawValue: state.onOff) ?? State.off
     }
 
     public override func refreshDeviceState(completion: @escaping Completion) {
-        run(command: "{\"smartlife.iot.smartbulb.lightingservice\":{\"get_light_state\":{}}}") { [weak self] result in
+        run("{\"smartlife.iot.smartbulb.lightingservice\":{\"get_light_state\":{}}}", responseType: GetStateResponse.self) { [weak self] result in
             switch result {
             case .success(let data):
-                let decoder = JSONDecoder()
-                if let decodedResponseData = try? decoder.decode(GetStateResponse.self, from: data) {
-                    self?.updateState(decodedResponseData.lightingService.lightState)
-                    
-                    completion(.success(Void()))
-                } else {
-                    completion(.failure(APIError("json parse error")))
-                }
+                self?.updateState(data.lightingService.lightState)
+                
+                completion(.success(Void()))
             case .failure(let error):
                 completion(.failure(error))
             }

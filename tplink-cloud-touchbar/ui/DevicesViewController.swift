@@ -180,7 +180,7 @@ extension DevicesViewController: DevicePopoverTouchBarDelegate {
     }
     
     func sliderValueChanged(device: inout BulbDevice, sliderValue: Int) {
-        device.setBrightness(Int32(sliderValue), completion: { _ in })
+        device.setBrightness(sliderValue, completion: { _ in })
     }
 }
 

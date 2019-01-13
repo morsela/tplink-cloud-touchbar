@@ -17,18 +17,16 @@ class TPLinkHS100: TPLinkDevice {
         setState(isOn: false, completion: completion)
     }
     
+    public func sysInfo(completion: @escaping CompletionWith<SysInfoResponse>) {
+        run("{\"system\":{\"get_sysinfo\":{}}}", responseType: SysInfoResponse.self, completion: completion)
+    }
+
     public override func refreshDeviceState(completion: @escaping (APIResult<Void>) -> Void) {
         sysInfo() { result in
             switch result {
             case .success(let data):
-                let decoder = JSONDecoder()
-                if let responseData = try? decoder.decode(SysInfoResponse.self, from: data) {
-                    self.state = State(rawValue: responseData.system.sysInfo.relayState) ?? State.off
-                    
-                    completion(.success(Void()))
-                } else {
-                    completion(.failure(APIError("json parse error")))
-                }
+                self.state = State(rawValue: data.system.sysInfo.relayState) ?? State.off
+                completion(.success(Void()))
             case .failure(let error):
                 completion(.failure(error))
             }
@@ -36,7 +34,7 @@ class TPLinkHS100: TPLinkDevice {
     }
     
     private func setState(isOn: Bool, completion: @escaping (APIResult<Void>) -> Void) {
-        run(command: "{\"system\":{\"set_relay_state\":{ \"state\": \(isOn ? "1" : "0")}}}") { result in
+        run("{\"system\":{\"set_relay_state\":{ \"state\": \(isOn ? "1" : "0")}}}") { result in
             switch result {
             case .success:
                 self.state = State(rawValue: isOn ? 1 : 0) ?? State.off

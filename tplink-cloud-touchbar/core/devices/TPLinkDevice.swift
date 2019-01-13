@@ -48,8 +48,12 @@ class TPLinkDevice {
         self.client = client
     }
     
-    public func sysInfo(completion: @escaping DataCompletion) {
-        run(command: "{\"system\":{\"get_sysinfo\":{}}}", completion: completion)
+    public func run<T: Decodable>(_ command: String, responseType: T.Type, completion: @escaping CompletionWith<T>) {
+        client?.run(command, deviceId: info.deviceId, appServerUrl: info.appServerUrl, responseType: responseType, completion: completion)
+    }
+    
+    public func run(_ command: String, completion: @escaping CompletionWith<Data>) {
+        client?.run(command, deviceId: info.deviceId, appServerUrl: info.appServerUrl, completion: completion)
     }
     
     public func powerOn(completion: @escaping Completion) {
@@ -75,9 +79,5 @@ class TPLinkDevice {
                 completion(.failure(error))
             }
         }
-    }
-    
-    public func run(command: String, completion: @escaping DataCompletion) {
-        client?.run(deviceId: info.deviceId, command: command, appServerUrl: info.appServerUrl, completion: completion)
     }
 }

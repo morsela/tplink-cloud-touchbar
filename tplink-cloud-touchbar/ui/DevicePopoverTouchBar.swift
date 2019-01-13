@@ -51,7 +51,7 @@ class DevicePopoverTouchBar: NSTouchBar {
             }
             
             if let sliderItem = item(forIdentifier: NSTouchBarItem.Identifier.slider) as? NSSliderTouchBarItem {
-                sliderItem.slider.intValue = bulbDevice.brightness
+                sliderItem.slider.intValue = Int32(bulbDevice.brightness)
             }
         }
     }
