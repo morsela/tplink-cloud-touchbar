@@ -19,20 +19,17 @@ class TPLinkLB100: TPLinkDevice & BulbDevice {
         setState(isOn: false, completion: completion)
     }
     
-    private func setState(isOn: Bool, brightness: Int = 100, completion: @escaping (APIResult<Void>) -> Void) {
+    private func setState(isOn: Bool, brightness: Int = 100, completion: @escaping Completion) {
         run(command: "{\"smartlife.iot.smartbulb.lightingservice\":{\"transition_light_state\":{ \"brightness\": \(brightness) , \"on_off\": \(isOn ? "1" : "0")}}}") { [weak self] result in
             switch result {
-            case .success(let value):
-                if let responseData = value["responseData"] as? String,
-                    let jsonData = responseData.convertToDictionary(),
-                    let lightingservice = jsonData["smartlife.iot.smartbulb.lightingservice"] as? [String: Any],
-                    let state = lightingservice["transition_light_state"] as? [String: Any] {
-                    
-                    self?.updateState(state)
-                    
+            case .success(let data):
+                let decoder = JSONDecoder()
+                if let decodedResponseData = try? decoder.decode(SetStateResponse.self, from: data) {
+                    self?.updateState(decodedResponseData.lightingService.lightState)
+
                     completion(.success(Void()))
                 } else {
-                    completion(.failure(APIError("json parsing failure")))
+                    completion(.failure(APIError("json parse error")))
                 }
             case .failure(let error):
                 completion(.failure(error))
@@ -40,38 +37,26 @@ class TPLinkLB100: TPLinkDevice & BulbDevice {
         }
     }
     
-    func setBrightness(_ brightness: Int32) {
-        setState(isOn: true, brightness: Int(brightness), completion: { _ in })
+    func setBrightness(_ brightness: Int32, completion: @escaping Completion) {
+        setState(isOn: true, brightness: Int(brightness), completion: completion)
     }
     
-    private func updateState(_ state: [String: Any]) {
-        if let dftOnState = state["dft_on_state"] as? [String: Any],
-            let brightness = dftOnState["brightness"] as? Int {
-            self.brightness = Int32(brightness)
-        }
-        
-        if let brightness = state["brightness"] as? Int {
-            self.brightness = Int32(brightness)
-        }
-        
-        if let onOff = state["on_off"] as? Int {
-            self.state = State(rawValue: onOff) ?? State.off
-        }
+    private func updateState(_ state: LightState) {
+        self.brightness = Int32(state.brightness ?? state.dftOnState?.brightness ?? 100)
+        self.state = State(rawValue: state.onOff) ?? State.off
     }
-    
-    public override func refreshDeviceState(completion: @escaping (APIResult<Void>) -> Void) {
+
+    public override func refreshDeviceState(completion: @escaping Completion) {
         run(command: "{\"smartlife.iot.smartbulb.lightingservice\":{\"get_light_state\":{}}}") { [weak self] result in
             switch result {
-            case .success(let value):
-                if let responseData = value["responseData"] as? String,
-                    let jsonData = responseData.convertToDictionary(),
-                    let lightingservice = jsonData["smartlife.iot.smartbulb.lightingservice"] as? [String: Any],
-                    let state = lightingservice["get_light_state"] as? [String: Any] {
+            case .success(let data):
+                let decoder = JSONDecoder()
+                if let decodedResponseData = try? decoder.decode(GetStateResponse.self, from: data) {
+                    self?.updateState(decodedResponseData.lightingService.lightState)
                     
-                    self?.updateState(state)
                     completion(.success(Void()))
                 } else {
-                    completion(.failure(APIError("json parsing failure")))
+                    completion(.failure(APIError("json parse error")))
                 }
             case .failure(let error):
                 completion(.failure(error))
@@ -81,5 +66,55 @@ class TPLinkLB100: TPLinkDevice & BulbDevice {
     
     public var supportsBrightnessAdjustment: Bool {
         return true
+    }
+}
+
+extension TPLinkLB100 {
+    struct LightState: Decodable {
+        struct DftOnState: Decodable {
+            let brightness: Int
+        }
+        
+        let brightness: Int?
+        let onOff: Int
+        let dftOnState: DftOnState?
+        
+        enum CodingKeys: String, CodingKey {
+            case brightness
+            case dftOnState = "dft_on_state"
+            case onOff = "on_off"
+        }
+    }
+    
+    struct GetStateResponse: Decodable {
+        struct LightingService: Decodable {
+            let lightState: LightState
+            
+            enum CodingKeys: String, CodingKey {
+                case lightState = "get_light_state"
+            }
+        }
+        
+        let lightingService: LightingService
+        
+        enum CodingKeys: String, CodingKey {
+            case lightingService = "smartlife.iot.smartbulb.lightingservice"
+        }
+    }
+    
+    struct SetStateResponse: Decodable {
+        struct LightingService: Decodable {
+            let lightState: LightState
+            
+            enum CodingKeys: String, CodingKey {
+                case lightState = "transition_light_state"
+            }
+        }
+        
+        let lightingService: LightingService
+        
+        enum CodingKeys: String, CodingKey {
+            case lightingService = "smartlife.iot.smartbulb.lightingservice"
+        }
     }
 }

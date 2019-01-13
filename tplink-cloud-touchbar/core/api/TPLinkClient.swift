@@ -13,6 +13,9 @@ enum APIResult<T> {
     case failure(Error)
 }
 
+typealias DataCompletion = (APIResult<Data>) -> Void
+typealias Completion = (APIResult<Void>) -> Void
+
 public struct APIError: Error {
     public let message: String
     
@@ -27,24 +30,8 @@ class TPLinkClient {
     private var isInitialized: Bool {
         return token != nil
     }
-
-    struct LoginResponse: Decodable {
-        struct Result: Decodable {
-            let token: String
-        }
-        
-        let result: Result
-    }
     
-    struct ListDevicesResponse: Decodable {
-        struct Result: Decodable {
-            let deviceList: [TPLinkDeviceInfo]
-        }
-        
-        let result: Result
-    }
-    
-    func login(user: String, password: String, termId: String, completion: @escaping (APIResult<Void>) -> Void) {
+    func login(user: String, password: String, termId: String, completion: @escaping Completion) {
         let parameters: [String: Any] = [
             "method": "login",
             "params": [
@@ -100,14 +87,14 @@ class TPLinkClient {
         }
     }
     
-    func refreshDevicesState(devices: [TPLinkDevice], completion: @escaping (APIResult<Void>) -> Void) {
+    func refreshDevicesState(devices: [TPLinkDevice], completion: @escaping Completion) {
         let dispatchGroup = DispatchGroup()
         
         for device in devices {
             dispatchGroup.enter()
-            device.refreshDeviceState(completion: { _ in
+            device.refreshDeviceState() { _ in
                 dispatchGroup.leave()
-            })
+            }
         }
         
         dispatchGroup.notify(queue: .main) {
@@ -115,7 +102,7 @@ class TPLinkClient {
         }
     }
     
-    func run(deviceId: String, command: String, appServerUrl: String, completion: @escaping (APIResult<[String: Any]>) -> Void) {
+    func run(deviceId: String, command: String, appServerUrl: String, completion: @escaping DataCompletion) {
         let parameters: [String: Any] = [
             "method": "passthrough",
             "params": [
@@ -126,12 +113,13 @@ class TPLinkClient {
             ]
         ]
         
-        Alamofire.request(appServerUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseJSON { response in
+        Alamofire.request(appServerUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseData { response in
             switch response.result {
-            case .success(let json):
-                if let parsedJSON = json as? [String: Any],
-                    let result = parsedJSON["result"] as? [String: Any] {
-                    completion(.success(result))
+            case .success(let data):
+                let decoder = JSONDecoder()
+                if let response = try? decoder.decode(RunResponse.self, from: data),
+                    let responseData = response.result.responseData.data(using: .utf8) {
+                    completion(.success(responseData))
                 } else {
                     completion(.failure(APIError("json parse error")))
                 }
@@ -139,5 +127,31 @@ class TPLinkClient {
                 completion(.failure(error))
             }
         }
+    }
+}
+
+extension TPLinkClient {
+    struct RunResponse: Decodable {
+        struct Result: Decodable {
+            let responseData: String
+        }
+        
+        let result: Result
+    }
+    
+    struct LoginResponse: Decodable {
+        struct Result: Decodable {
+            let token: String
+        }
+        
+        let result: Result
+    }
+    
+    struct ListDevicesResponse: Decodable {
+        struct Result: Decodable {
+            let deviceList: [TPLinkDeviceInfo]
+        }
+        
+        let result: Result
     }
 }

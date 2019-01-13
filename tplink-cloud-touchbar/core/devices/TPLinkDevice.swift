@@ -6,6 +6,8 @@
 //  Copyright © 2019 Sela. All rights reserved.
 //
 
+import Cocoa
+
 struct TPLinkDeviceInfo: Decodable {
     let appServerUrl: String
     let deviceId: String
@@ -46,23 +48,23 @@ class TPLinkDevice {
         self.client = client
     }
     
-    public func sysInfo(completion: @escaping (APIResult<[String: Any]>) -> Void) {
+    public func sysInfo(completion: @escaping DataCompletion) {
         run(command: "{\"system\":{\"get_sysinfo\":{}}}", completion: completion)
     }
     
-    public func powerOn(completion: @escaping (APIResult<Void>) -> Void) {
+    public func powerOn(completion: @escaping Completion) {
         assertionFailure("Not implemented for model \(info.deviceModel)")
     }
     
-    public func powerOff(completion: @escaping (APIResult<Void>) -> Void) {
+    public func powerOff(completion: @escaping Completion) {
         assertionFailure("Not implemented for model \(info.deviceModel)")
     }
     
-    public func refreshDeviceState(completion: @escaping (APIResult<Void>) -> Void) {
+    public func refreshDeviceState(completion: @escaping Completion) {
         completion(.failure(APIError("unsupported")))
     }
     
-    public func toggle(completion: @escaping (APIResult<Void>) -> Void) {
+    public func toggle(completion: @escaping Completion) {
         refreshDeviceState { [weak self] result in
             switch result {
             case .success:
@@ -75,7 +77,7 @@ class TPLinkDevice {
         }
     }
     
-    public func run(command: String, completion: @escaping (APIResult<[String: Any]>) -> Void) {
+    public func run(command: String, completion: @escaping DataCompletion) {
         client?.run(deviceId: info.deviceId, command: command, appServerUrl: info.appServerUrl, completion: completion)
     }
 }

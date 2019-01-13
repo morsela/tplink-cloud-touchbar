@@ -11,7 +11,7 @@ import Cocoa
 protocol BulbDevice {
     var supportsBrightnessAdjustment: Bool { get }
     
-    func setBrightness(_ brightness: Int32)
+    func setBrightness(_ brightness: Int32, completion: @escaping Completion)
     
     var brightness: Int32 { get }
 }

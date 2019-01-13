@@ -20,18 +20,14 @@ class TPLinkHS100: TPLinkDevice {
     public override func refreshDeviceState(completion: @escaping (APIResult<Void>) -> Void) {
         sysInfo() { result in
             switch result {
-            case .success(let value):
-                if let responseData = value["responseData"] as? String,
-                    let jsonData = responseData.convertToDictionary(),
-                    let system = jsonData["system"] as? [String: Any],
-                    let sysInfo = system["get_sysinfo"] as? [String: Any],
-                    let relayState = sysInfo["relay_state"] as? Int {
-                    
-                    self.state = State(rawValue: relayState) ?? State.off
+            case .success(let data):
+                let decoder = JSONDecoder()
+                if let responseData = try? decoder.decode(SysInfoResponse.self, from: data) {
+                    self.state = State(rawValue: responseData.system.sysInfo.relayState) ?? State.off
                     
                     completion(.success(Void()))
                 } else {
-                    completion(.failure(APIError("json parsing failure")))
+                    completion(.failure(APIError("json parse error")))
                 }
             case .failure(let error):
                 completion(.failure(error))
@@ -53,3 +49,25 @@ class TPLinkHS100: TPLinkDevice {
 }
 
 class TPLinkHS105: TPLinkHS100 {}
+
+extension TPLinkHS100 {
+    struct SysInfo: Decodable {
+        let relayState: Int
+        
+        enum CodingKeys: String, CodingKey {
+            case relayState = "relay_state"
+        }
+    }
+    
+    struct SysInfoResponse: Decodable {
+        struct SystemResponse: Decodable {
+            let sysInfo: SysInfo
+            
+            enum CodingKeys: String, CodingKey {
+                case sysInfo = "get_sysinfo"
+            }
+        }
+        
+        let system: SystemResponse
+    }
+}
