@@ -20,7 +20,8 @@ class TPLinkLB100: TPLinkDevice & BulbDevice {
     }
     
     private func setState(isOn: Bool, brightness: Int = 100, completion: @escaping Completion) {
-        run("{\"smartlife.iot.smartbulb.lightingservice\":{\"transition_light_state\":{ \"brightness\": \(brightness) , \"on_off\": \(isOn ? "1" : "0")}}}", responseType: SetStateResponse.self) { [weak self] result in
+        let setState = SetState(lightingService: SetState.LightingService(lightState: LightState(brightness: brightness, onOff: isOn ? 1 : 0, dftOnState: nil)))
+        run(setState, responseType: SetState.self) { [weak self] result in
             switch result {
             case .success(let data):
                 self?.updateState(data.lightingService.lightState)
@@ -35,12 +36,18 @@ class TPLinkLB100: TPLinkDevice & BulbDevice {
     }
     
     private func updateState(_ state: LightState) {
-        self.brightness = state.brightness ?? state.dftOnState?.brightness ?? 100
-        self.state = State(rawValue: state.onOff) ?? State.off
+        if let brightness = state.brightness ?? state.dftOnState?.brightness {
+            self.brightness = brightness
+        }
+
+        if let onOff = state.onOff {
+            self.state = State(rawValue: onOff) ?? State.off
+        }
     }
 
     public override func refreshDeviceState(completion: @escaping Completion) {
-        run("{\"smartlife.iot.smartbulb.lightingservice\":{\"get_light_state\":{}}}", responseType: GetStateResponse.self) { [weak self] result in
+        let getState = GetState(lightingService: GetState.LightingService(lightState: LightState(brightness: nil, onOff: nil, dftOnState: nil)))
+        run(getState, responseType: GetState.self) { [weak self] result in
             switch result {
             case .success(let data):
                 self?.updateState(data.lightingService.lightState)
@@ -58,13 +65,13 @@ class TPLinkLB100: TPLinkDevice & BulbDevice {
 }
 
 extension TPLinkLB100 {
-    struct LightState: Decodable {
-        struct DftOnState: Decodable {
+    struct LightState: Codable {
+        struct DftOnState: Codable {
             let brightness: Int
         }
         
         let brightness: Int?
-        let onOff: Int
+        let onOff: Int?
         let dftOnState: DftOnState?
         
         enum CodingKeys: String, CodingKey {
@@ -74,8 +81,8 @@ extension TPLinkLB100 {
         }
     }
     
-    struct GetStateResponse: Decodable {
-        struct LightingService: Decodable {
+    struct GetState: Codable {
+        struct LightingService: Codable {
             let lightState: LightState
             
             enum CodingKeys: String, CodingKey {
@@ -90,8 +97,8 @@ extension TPLinkLB100 {
         }
     }
     
-    struct SetStateResponse: Decodable {
-        struct LightingService: Decodable {
+    struct SetState: Codable {
+        struct LightingService: Codable {
             let lightState: LightState
             
             enum CodingKeys: String, CodingKey {

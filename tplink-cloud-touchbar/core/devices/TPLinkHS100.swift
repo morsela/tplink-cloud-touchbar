@@ -9,32 +9,38 @@
 import Cocoa
 
 class TPLinkHS100: TPLinkDevice {
-    public override func powerOn(completion: @escaping (APIResult<Void>) -> Void) {
+    public override func powerOn(completion: @escaping Completion) {
         setState(isOn: true, completion: completion)
     }
     
-    public override func powerOff(completion: @escaping (APIResult<Void>) -> Void) {
+    public override func powerOff(completion: @escaping Completion) {
         setState(isOn: false, completion: completion)
     }
     
-    public func sysInfo(completion: @escaping CompletionWith<SysInfoResponse>) {
-        run("{\"system\":{\"get_sysinfo\":{}}}", responseType: SysInfoResponse.self, completion: completion)
+    public func sysInfo(completion: @escaping CompletionWith<SysInfoCodable>) {
+        let sysInfoRequest = SysInfoCodable(system: SysInfoCodable.System(sysInfo: SysInfo(relayState: nil)))
+        
+        run(sysInfoRequest, responseType: SysInfoCodable.self, completion: completion)
     }
 
-    public override func refreshDeviceState(completion: @escaping (APIResult<Void>) -> Void) {
+    public override func refreshDeviceState(completion: @escaping Completion) {
         sysInfo() { result in
             switch result {
             case .success(let data):
-                self.state = State(rawValue: data.system.sysInfo.relayState) ?? State.off
+                if let relayState = data.system.sysInfo.relayState {
+                    self.state = State(rawValue: relayState) ?? State.off
+                }
+
                 completion(.success(Void()))
             case .failure(let error):
                 completion(.failure(error))
             }
         }
     }
-    
-    private func setState(isOn: Bool, completion: @escaping (APIResult<Void>) -> Void) {
-        run("{\"system\":{\"set_relay_state\":{ \"state\": \(isOn ? "1" : "0")}}}") { result in
+
+    private func setState(isOn: Bool, completion: @escaping Completion) {
+        let setStateRequest = SystemRequest(system: SystemRequest.System(setRelayState: SystemRequest.System.SetRelayState(state: isOn ? 1 : 0)))
+        run(setStateRequest, responseType: VoidStruct.self) { result in
             switch result {
             case .success:
                 self.state = State(rawValue: isOn ? 1 : 0) ?? State.off
@@ -49,16 +55,34 @@ class TPLinkHS100: TPLinkDevice {
 class TPLinkHS105: TPLinkHS100 {}
 
 extension TPLinkHS100 {
-    struct SysInfo: Decodable {
-        let relayState: Int
+    struct VoidStruct: Codable {}
+
+    struct SystemRequest: Encodable {
+        struct System: Encodable {
+            struct SetRelayState: Encodable {
+                let state: Int
+            }
+
+            let setRelayState: SetRelayState
+            
+            enum CodingKeys: String, CodingKey {
+                case setRelayState = "set_relay_state"
+            }
+        }
+
+        let system: System
+    }
+
+    struct SysInfo: Codable {
+        let relayState: Int?
         
         enum CodingKeys: String, CodingKey {
             case relayState = "relay_state"
         }
     }
     
-    struct SysInfoResponse: Decodable {
-        struct SystemResponse: Decodable {
+    struct SysInfoCodable: Codable {
+        struct System: Codable {
             let sysInfo: SysInfo
             
             enum CodingKeys: String, CodingKey {
@@ -66,6 +90,6 @@ extension TPLinkHS100 {
             }
         }
         
-        let system: SystemResponse
+        let system: System
     }
 }

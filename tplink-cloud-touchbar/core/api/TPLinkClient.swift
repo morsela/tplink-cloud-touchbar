@@ -102,6 +102,17 @@ class TPLinkClient {
         }
     }
     
+    public func run<Request: Encodable, Response: Decodable>(_ request: Request, deviceId: String, appServerUrl: String, responseType: Response.Type, completion: @escaping (APIResult<Response>) -> Void) {
+        if let encodedObject = try? JSONEncoder().encode(request),
+            let encodedObjectJsonString = String(data: encodedObject, encoding: .utf8) {
+            
+            print("encodedObjectJsonString: \(encodedObjectJsonString)")
+            run(encodedObjectJsonString, deviceId: deviceId, appServerUrl: appServerUrl, responseType: responseType, completion: completion)
+        } else {
+            completion(.failure(APIError("request json encode failure")))
+        }
+    }
+    
     func run(_ command: String, deviceId: String, appServerUrl: String, completion: @escaping CompletionWith<Data>) {
         let parameters: [String: Any] = [
             "method": "passthrough",
@@ -133,8 +144,7 @@ class TPLinkClient {
         run(command, deviceId: deviceId, appServerUrl: appServerUrl) { result in
             switch result {
             case .success(let data):
-                let decoder = JSONDecoder()
-                if let decodedResponseData = try? decoder.decode(responseType, from: data) {
+                if let decodedResponseData = try? JSONDecoder().decode(responseType, from: data) {
                     completion(.success(decodedResponseData))
                 } else {
                     completion(.failure(APIError("json parse error")))
