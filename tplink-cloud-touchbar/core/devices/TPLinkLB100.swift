@@ -11,11 +11,11 @@ import Cocoa
 class TPLinkLB100: TPLinkDevice & BulbDevice {
     var brightness: Int = 100
     
-    public override func powerOn(completion: @escaping (APIResult<Void>) -> Void) {
+    public override func powerOn(completion: @escaping Completion) {
         setState(isOn: true, completion: completion)
     }
     
-    public override func powerOff(completion: @escaping (APIResult<Void>) -> Void) {
+    public override func powerOff(completion: @escaping Completion) {
         setState(isOn: false, completion: completion)
     }
     

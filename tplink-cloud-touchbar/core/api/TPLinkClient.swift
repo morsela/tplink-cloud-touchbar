@@ -59,7 +59,7 @@ class TPLinkClient {
         }
     }
     
-    func listDevices(completion: @escaping (APIResult<[TPLinkDevice]>) -> Void) {
+    func listDevices(completion: @escaping CompletionWith<[TPLinkDevice]>) {
         let parameters: [String: Any] = [
             "method": "getDeviceList",
             "params": [
@@ -102,7 +102,7 @@ class TPLinkClient {
         }
     }
     
-    public func run<Request: Encodable, Response: Decodable>(_ request: Request, deviceId: String, appServerUrl: String, responseType: Response.Type, completion: @escaping (APIResult<Response>) -> Void) {
+    public func run<Request: Encodable, Response: Decodable>(_ request: Request, deviceId: String, appServerUrl: String, responseType: Response.Type, completion: @escaping CompletionWith<Response>) {
         if let encodedObject = try? JSONEncoder().encode(request),
             let encodedObjectJsonString = String(data: encodedObject, encoding: .utf8) {
             
@@ -140,7 +140,7 @@ class TPLinkClient {
         }
     }
     
-    public func run<T: Decodable>(_ command: String, deviceId: String, appServerUrl: String, responseType: T.Type, completion: @escaping (APIResult<T>) -> Void) {
+    public func run<T: Decodable>(_ command: String, deviceId: String, appServerUrl: String, responseType: T.Type, completion: @escaping CompletionWith<T>) {
         run(command, deviceId: deviceId, appServerUrl: appServerUrl) { result in
             switch result {
             case .success(let data):

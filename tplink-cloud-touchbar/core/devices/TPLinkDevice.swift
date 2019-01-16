@@ -48,7 +48,7 @@ class TPLinkDevice {
         self.client = client
     }
     
-    public func run<Request: Encodable, Response: Decodable>(_ request: Request, responseType: Response.Type, completion: @escaping (APIResult<Response>) -> Void) {
+    public func run<Request: Encodable, Response: Decodable>(_ request: Request, responseType: Response.Type, completion: @escaping CompletionWith<Response>) {
         client?.run(request, deviceId: info.deviceId, appServerUrl: info.appServerUrl, responseType: responseType, completion: completion)
     }
     
