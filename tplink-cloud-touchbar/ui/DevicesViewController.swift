@@ -129,7 +129,7 @@ extension DevicesViewController: NSScrubberDataSource, NSScrubberDelegate {
         if let itemView =
             scrubber.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: type(of: self).itemViewIdentifier),
                               owner: nil) as? IconTextItemView {
-            itemView.imageView.image = devices[index].state.isOff() ? NSImage(named: NSImage.statusNoneName) : NSImage(named: NSImage.statusAvailableName)
+            itemView.imageView.image = devices[index].stateImage
             itemView.textField.stringValue = devices[index].info.alias
             itemView.textField.textColor = devices[index].state.isOff() ? NSColor.darkGray : NSColor.orange
             returnItemView = itemView
@@ -162,8 +162,7 @@ extension DevicesViewController: NSScrubberFlowLayoutDelegate {
                                           attributes: [NSAttributedString.Key.font: NSFont.systemFont(ofSize: 0)])
         
         var width: CGFloat = 100.0
-        let image = devices[itemIndex].state.isOff() ? NSImage(named: NSImage.statusNoneName) : NSImage(named: NSImage.statusAvailableName)
-        if let image = image {
+        if let image = devices[itemIndex].stateImage {
             width = textRect.size.width + image.size.width + 6 + 10 + 20
         }
         
@@ -173,9 +172,14 @@ extension DevicesViewController: NSScrubberFlowLayoutDelegate {
 
 extension DevicesViewController: DevicePopoverTouchBarDelegate {
     func actionHandler(device: TPLinkDevice) {
+        let deviceIndex = devices.index(where: { $0.info.deviceId == device.info.deviceId }) ?? -1
+        
+        device.state = .unknown
+        scrubber?.presentingItem?.dismissPopover(nil)
+        scrubber?.reloadItems(at: IndexSet(integer: deviceIndex))
+        
         device.toggle(completion: { [weak self] _ in
-            self?.scrubber?.reloadData()
-            self?.scrubber?.presentingItem?.dismissPopover(nil)
+            self?.scrubber?.reloadItems(at: IndexSet(integer: deviceIndex))
         })
     }
     
@@ -184,3 +188,12 @@ extension DevicesViewController: DevicePopoverTouchBarDelegate {
     }
 }
 
+extension TPLinkDevice {
+    var stateImage: NSImage? {
+        switch state {
+        case .off: return NSImage(named: NSImage.statusNoneName)
+        case .on: return NSImage(named: NSImage.statusAvailableName)
+        case .unknown: return NSImage(named: NSImage.statusPartiallyAvailableName)
+        }
+    }
+}
