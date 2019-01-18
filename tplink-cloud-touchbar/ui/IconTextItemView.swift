@@ -11,9 +11,34 @@ import Cocoa
 @available(OSX 10.12.2, *)
 class IconTextItemView: NSScrubberItemView {
     
-    let imageView = NSImageView()
+    let imageView: NSImageView = {
+        let imageView = NSImageView()
+        return imageView
+    }()
     
-    let textField = NSTextField()
+    let textField: NSTextField = {
+        let textField = NSTextField()
+        textField.font = NSFont.systemFont(ofSize: 0)
+        textField.textColor = NSColor.white
+        
+        return textField
+    }()
+    
+    let progressBar: NSProgressIndicator = {
+        let progressBar = NSProgressIndicator()
+        
+        progressBar.style = .bar
+        return progressBar
+    }()
+    
+    let titleStackView: NSStackView = {
+        let stackView = NSStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.orientation = .horizontal
+        stackView.alignment = .centerY
+        stackView.spacing = 2
+        return stackView
+    }()
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -23,13 +48,12 @@ class IconTextItemView: NSScrubberItemView {
         super.init(frame: frame)
         
         translatesAutoresizingMaskIntoConstraints = false
+        
+        addSubview(titleStackView)
+        
+        titleStackView.addArrangedSubview(imageView)
+        titleStackView.addArrangedSubview(textField)
 
-        textField.font = NSFont.systemFont(ofSize: 0)
-        textField.textColor = NSColor.white
-        
-        addSubview(imageView)
-        addSubview(textField)
-        
         updateLayout()
     }
     
@@ -41,25 +65,11 @@ class IconTextItemView: NSScrubberItemView {
     }
     
     private func updateLayout() {
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        
-        let viewBindings: [String: NSView] = ["imageView": imageView, "textField": textField]
-        var formatString = "H:|-2-[imageView]-2-[textField]-2-|"
-        let hconstraints = NSLayoutConstraint.constraints(withVisualFormat: formatString,
-                                                          options: [],
-                                                          metrics: nil,
-                                                          views: viewBindings)
-        formatString = "V:|-0-[imageView]-0-|"
-        let vconstraints = NSLayoutConstraint.constraints(withVisualFormat: formatString,
-                                                          options: [],
-                                                          metrics: nil,
-                                                          views: viewBindings)
-        
-        let alignConstraint = NSLayoutConstraint(item: imageView, attribute: .centerY,
-                                                 relatedBy: .equal,
-                                                 toItem: textField, attribute: .centerY,
-                                                 multiplier: 1, constant: 0)
-        NSLayoutConstraint.activate(hconstraints + vconstraints + [alignConstraint])
+        NSLayoutConstraint.activate([
+            leadingAnchor.constraint(equalTo: titleStackView.leadingAnchor),
+            trailingAnchor.constraint(equalTo: titleStackView.trailingAnchor),
+            topAnchor.constraint(equalTo: titleStackView.topAnchor),
+            bottomAnchor.constraint(equalTo: titleStackView.bottomAnchor),
+        ])
     }
 }

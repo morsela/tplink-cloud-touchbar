@@ -28,7 +28,7 @@ class TPLinkHS100: TPLinkDevice {
             switch result {
             case .success(let data):
                 if let relayState = data.system.sysInfo.relayState {
-                    self.state = State(rawValue: relayState) ?? State.off
+                    self.state = State(value: relayState)
                 }
 
                 completion(.success(Void()))
@@ -43,7 +43,7 @@ class TPLinkHS100: TPLinkDevice {
         run(setStateRequest, responseType: VoidStruct.self) { result in
             switch result {
             case .success:
-                self.state = State(rawValue: isOn ? 1 : 0) ?? State.off
+                self.state = State(isOn: isOn)
                 completion(.success(Void()))
             case .failure(let error):
                 completion(.failure(error))

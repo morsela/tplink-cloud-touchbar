@@ -179,7 +179,8 @@ extension DevicesViewController: DevicePopoverTouchBarDelegate {
         scrubber?.reloadItems(at: IndexSet(integer: deviceIndex))
         
         device.toggle(completion: { [weak self] _ in
-            self?.scrubber?.reloadItems(at: IndexSet(integer: deviceIndex))
+            self?.scrubber?.reloadData()
+//            self?.scrubber?.reloadItems(at: IndexSet(integer: deviceIndex))
         })
     }
     

@@ -19,30 +19,35 @@ class TPLinkLB100: TPLinkDevice & BulbDevice {
         setState(isOn: false, completion: completion)
     }
     
+    func setBrightness(_ brightness: Int, completion: @escaping Completion) {
+        setState(isOn: true, brightness: brightness, completion: completion)
+    }
+    
     private func setState(isOn: Bool, brightness: Int = 100, completion: @escaping Completion) {
         let setState = SetState(lightingService: SetState.LightingService(lightState: LightState(brightness: brightness, onOff: isOn ? 1 : 0, dftOnState: nil)))
         run(setState, responseType: SetState.self) { [weak self] result in
             switch result {
             case .success(let data):
                 self?.updateState(data.lightingService.lightState)
+
+                completion(.success(Void()))
             case .failure(let error):
                 completion(.failure(error))
             }
         }
     }
     
-    func setBrightness(_ brightness: Int, completion: @escaping Completion) {
-        setState(isOn: true, brightness: brightness, completion: completion)
-    }
-    
     private func updateState(_ state: LightState) {
         if let brightness = state.brightness ?? state.dftOnState?.brightness {
             self.brightness = brightness
+            
         }
 
         if let onOff = state.onOff {
-            self.state = State(rawValue: onOff) ?? State.off
+            self.state = State(value: onOff)
         }
+        
+        print("LB \(info.alias) state: \(self.state), brightness: \(self.brightness)")
     }
 
     public override func refreshDeviceState(completion: @escaping Completion) {

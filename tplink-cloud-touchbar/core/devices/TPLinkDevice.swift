@@ -29,6 +29,14 @@ class TPLinkDevice {
         case on = 1
         case unknown = 2
         
+        init(isOn: Bool) {
+            self.init(value: isOn ? 1 : 0)
+        }
+        
+        init(value: Int) {
+            self = State.init(rawValue: value) ?? .off
+        }
+
         func isOn() -> Bool {
             return self == .on
         }
