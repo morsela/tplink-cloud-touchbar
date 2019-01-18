@@ -54,7 +54,12 @@ class IconTextItemView: NSScrubberItemView {
         titleStackView.addArrangedSubview(imageView)
         titleStackView.addArrangedSubview(textField)
 
-        updateLayout()
+        NSLayoutConstraint.activate([
+            leadingAnchor.constraint(equalTo: titleStackView.leadingAnchor, constant: 2),
+            trailingAnchor.constraint(equalTo: titleStackView.trailingAnchor, constant: 2),
+            topAnchor.constraint(equalTo: titleStackView.topAnchor),
+            bottomAnchor.constraint(equalTo: titleStackView.bottomAnchor),
+            ])
     }
     
     convenience init(icon: NSImage?, text: String) {
@@ -62,14 +67,5 @@ class IconTextItemView: NSScrubberItemView {
         
         imageView.image = icon
         textField.stringValue = text
-    }
-    
-    private func updateLayout() {
-        NSLayoutConstraint.activate([
-            leadingAnchor.constraint(equalTo: titleStackView.leadingAnchor),
-            trailingAnchor.constraint(equalTo: titleStackView.trailingAnchor),
-            topAnchor.constraint(equalTo: titleStackView.topAnchor),
-            bottomAnchor.constraint(equalTo: titleStackView.bottomAnchor),
-        ])
     }
 }
