@@ -31,8 +31,11 @@ class TPLinkClient {
         return token != nil
     }
     
-    func request<ResponseType: Decodable, T>(method: String, parameters: [String: Any], completion: @escaping CompletionWith<T>, handler: @escaping (ResponseType) -> T) {
+    func request<ResponseType: Decodable, T>(method: String, host: String = "https://wap.tplinkcloud.com", parameters: [String: Any], completion: @escaping CompletionWith<T>, handler: @escaping (ResponseType) -> T) {
         var innerParameters: [String: Any] = ["appType": "Kasa_Android"]
+        if let token = token {
+            innerParameters["token"] = token
+        }
         innerParameters.merge(parameters, uniquingKeysWith: { (current, _) in current })
         
         let parameters: [String: Any] = [
@@ -40,7 +43,7 @@ class TPLinkClient {
             "params": innerParameters
         ]
         
-        Alamofire.request("https://wap.tplinkcloud.com", method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseData { response in
+        Alamofire.request(host, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseData { response in
             switch response.result {
             case .success(let data):
                 if let response = try? JSONDecoder().decode(ResponseType.self, from: data) {
@@ -64,57 +67,20 @@ class TPLinkClient {
     }
     
     func listDevices(completion: @escaping CompletionWith<[TPLinkDevice]>) {
-        let parameters: [String: Any] = [
-            "method": "getDeviceList",
-            "params": [
-                "appType": "Kasa_Android",
-                "token": token
-            ]
-        ]
+        request(method: "getDeviceList", parameters: [:], completion: completion, handler: { [weak self] (data: ListDevicesResponse) in
+            guard let strongSelf = self else { return [] }
 
-        Alamofire.request("https://wap.tplinkcloud.com", method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseData { [weak self] response in
-            switch response.result {
-            case .success(let data):
-                guard let strongSelf = self else { return }
-                
-                if let response = try? JSONDecoder().decode(ListDevicesResponse.self, from: data) {
-                    let devices = response.result.deviceList.compactMap { TPLinkDeviceFactory.create(info: $0, client: strongSelf) }
-                    
-                    print("list devices succeeded")
-                    completion(.success(devices))
-                } else {
-                    completion(.failure(APIError("json parse error")))
-                }
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+            return data.result.deviceList.compactMap { TPLinkDeviceFactory.create(info: $0, client: strongSelf) }
+        })
     }
     
     func run(_ command: String, deviceId: String, appServerUrl: String, completion: @escaping CompletionWith<Data>) {
-        let parameters: [String: Any] = [
-            "method": "passthrough",
-            "params": [
-                "appType": "Kasa_Android",
-                "token": token,
-                "deviceId": deviceId,
-                "requestData": command
-            ]
-        ]
+        let params = ["deviceId": deviceId,
+                      "requestData": command]
         
-        Alamofire.request(appServerUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseData { response in
-            switch response.result {
-            case .success(let data):
-                if let response = try? JSONDecoder().decode(RunResponse.self, from: data),
-                    let responseData = response.result.responseData.data(using: .utf8) {
-                    completion(.success(responseData))
-                } else {
-                    completion(.failure(APIError("json parse error")))
-                }
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+        request(method: "passthrough", host: appServerUrl, parameters: params, completion: completion, handler: { (data: RunResponse) in
+            return data.result.responseData.data(using: .utf8) ?? Data()
+        })
     }
     
     public func run<T: Decodable>(_ command: String, deviceId: String, appServerUrl: String, responseType: T.Type, completion: @escaping CompletionWith<T>) {
