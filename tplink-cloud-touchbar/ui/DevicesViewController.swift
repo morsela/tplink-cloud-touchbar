@@ -59,8 +59,10 @@ class DevicesViewController: NSViewController {
     private func refreshDevices() {
         client.listDevices() { [weak self] result in
             if case .success(let devices) = result {
-                self?.client.refreshDevicesState(devices: devices) { _ in
-                    self?.devices = devices.filter { $0.info.status == 1 }.sorted(by: { $0.info.alias < $1.info.alias })
+                self?.devices = devices.filter { $0.info.status == 1 }.sorted(by: { $0.info.alias < $1.info.alias })
+                
+                self?.client.refreshDevicesState(devices: devices) { [weak self] _ in
+                    self?.scrubber?.reloadData()
                 }
             }
         }

@@ -31,25 +31,20 @@ class TPLinkClient {
         return token != nil
     }
     
-    func login(user: String, password: String, termId: String, completion: @escaping Completion) {
+    func request<ResponseType: Decodable, T>(method: String, parameters: [String: Any], completion: @escaping CompletionWith<T>, handler: @escaping (ResponseType) -> T) {
+        var innerParameters: [String: Any] = ["appType": "Kasa_Android"]
+        innerParameters.merge(parameters, uniquingKeysWith: { (current, _) in current })
+        
         let parameters: [String: Any] = [
-            "method": "login",
-            "params": [
-                "appType": "Kasa_Android",
-                "cloudPassword": password,
-                "cloudUserName": user,
-                "terminalUUID": termId
-            ]
+            "method": method,
+            "params": innerParameters
         ]
         
-        Alamofire.request("https://wap.tplinkcloud.com", method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseData { [weak self] response in
+        Alamofire.request("https://wap.tplinkcloud.com", method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseData { response in
             switch response.result {
             case .success(let data):
-                let decoder = JSONDecoder()
-                if let response = try? decoder.decode(LoginResponse.self, from: data) {
-                    self?.token = response.result.token
-                    
-                    completion(.success(Void()))
+                if let response = try? JSONDecoder().decode(ResponseType.self, from: data) {
+                    completion(.success(handler(response)))
                 } else {
                     completion(.failure(APIError("json parse error")))
                 }
@@ -57,6 +52,15 @@ class TPLinkClient {
                 completion(.failure(error))
             }
         }
+    }
+
+    func login(user: String, password: String, termId: String, completion: @escaping Completion) {
+        let params = ["cloudPassword": password,
+                      "cloudUserName": user,
+                      "terminalUUID": termId]
+        request(method: "login", parameters: params, completion: completion, handler: { [weak self] (data: LoginResponse) in
+            self?.token = data.result.token
+        })
     }
     
     func listDevices(completion: @escaping CompletionWith<[TPLinkDevice]>) {
@@ -73,10 +77,10 @@ class TPLinkClient {
             case .success(let data):
                 guard let strongSelf = self else { return }
                 
-                let decoder = JSONDecoder()
-                if let response = try? decoder.decode(ListDevicesResponse.self, from: data) {
+                if let response = try? JSONDecoder().decode(ListDevicesResponse.self, from: data) {
                     let devices = response.result.deviceList.compactMap { TPLinkDeviceFactory.create(info: $0, client: strongSelf) }
                     
+                    print("list devices succeeded")
                     completion(.success(devices))
                 } else {
                     completion(.failure(APIError("json parse error")))
@@ -84,31 +88,6 @@ class TPLinkClient {
             case .failure(let error):
                 completion(.failure(error))
             }
-        }
-    }
-    
-    func refreshDevicesState(devices: [TPLinkDevice], completion: @escaping Completion) {
-        let dispatchGroup = DispatchGroup()
-        
-        for device in devices {
-            dispatchGroup.enter()
-            device.refreshDeviceState() { _ in
-                dispatchGroup.leave()
-            }
-        }
-        
-        dispatchGroup.notify(queue: .main) {
-            completion(.success(Void()))
-        }
-    }
-    
-    public func run<Request: Encodable, Response: Decodable>(_ request: Request, deviceId: String, appServerUrl: String, responseType: Response.Type, completion: @escaping CompletionWith<Response>) {
-        if let encodedObject = try? JSONEncoder().encode(request),
-            let encodedObjectJsonString = String(data: encodedObject, encoding: .utf8) {
-
-            run(encodedObjectJsonString, deviceId: deviceId, appServerUrl: appServerUrl, responseType: responseType, completion: completion)
-        } else {
-            completion(.failure(APIError("request json encode failure")))
         }
     }
     
@@ -126,8 +105,7 @@ class TPLinkClient {
         Alamofire.request(appServerUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseData { response in
             switch response.result {
             case .success(let data):
-                let decoder = JSONDecoder()
-                if let response = try? decoder.decode(RunResponse.self, from: data),
+                if let response = try? JSONDecoder().decode(RunResponse.self, from: data),
                     let responseData = response.result.responseData.data(using: .utf8) {
                     completion(.success(responseData))
                 } else {
@@ -151,6 +129,31 @@ class TPLinkClient {
             case .failure(let error):
                 completion(.failure(error))
             }
+        }
+    }
+    
+    public func run<Request: Encodable, Response: Decodable>(_ request: Request, deviceId: String, appServerUrl: String, responseType: Response.Type, completion: @escaping CompletionWith<Response>) {
+        if let encodedObject = try? JSONEncoder().encode(request),
+            let encodedObjectJsonString = String(data: encodedObject, encoding: .utf8) {
+            
+            run(encodedObjectJsonString, deviceId: deviceId, appServerUrl: appServerUrl, responseType: responseType, completion: completion)
+        } else {
+            completion(.failure(APIError("request json encode failure")))
+        }
+    }
+    
+    func refreshDevicesState(devices: [TPLinkDevice], completion: @escaping Completion) {
+        let dispatchGroup = DispatchGroup()
+        
+        for device in devices {
+            dispatchGroup.enter()
+            device.refreshDeviceState() { _ in
+                dispatchGroup.leave()
+            }
+        }
+        
+        dispatchGroup.notify(queue: .main) {
+            completion(.success(Void()))
         }
     }
 }

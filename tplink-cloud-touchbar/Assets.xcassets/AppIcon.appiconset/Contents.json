@@ -3,58 +3,61 @@
     {
       "size" : "16x16",
       "idiom" : "mac",
-      "filename" : "Light-Bulb-icon-16.png",
+      "filename" : "1102px-Light_bulb_icon_red.svg-16.png",
       "scale" : "1x"
     },
     {
       "size" : "16x16",
       "idiom" : "mac",
-      "filename" : "Light-Bulb-icon-33.png",
+      "filename" : "1102px-Light_bulb_icon_red.svg-32.png",
       "scale" : "2x"
     },
     {
       "size" : "32x32",
       "idiom" : "mac",
-      "filename" : "Light-Bulb-icon-32.png",
+      "filename" : "1102px-Light_bulb_icon_red.svg-32.png",
       "scale" : "1x"
     },
     {
       "size" : "32x32",
       "idiom" : "mac",
-      "filename" : "Light-Bulb-icon-64.png",
+      "filename" : "1102px-Light_bulb_icon_red.svg-64.png",
       "scale" : "2x"
     },
     {
       "size" : "128x128",
       "idiom" : "mac",
-      "filename" : "Light-Bulb-icon-128.png",
+      "filename" : "1102px-Light_bulb_icon_red.svg-128.png",
       "scale" : "1x"
     },
     {
-      "idiom" : "mac",
       "size" : "128x128",
+      "idiom" : "mac",
+      "filename" : "1102px-Light_bulb_icon_red.svg-256.png",
       "scale" : "2x"
     },
     {
-      "idiom" : "mac",
       "size" : "256x256",
+      "idiom" : "mac",
+      "filename" : "1102px-Light_bulb_icon_red.svg-256.png",
       "scale" : "1x"
     },
     {
       "size" : "256x256",
       "idiom" : "mac",
-      "filename" : "Light-Bulb-icon-513.png",
+      "filename" : "1102px-Light_bulb_icon_red.svg-512.png",
       "scale" : "2x"
     },
     {
       "size" : "512x512",
       "idiom" : "mac",
-      "filename" : "Light-Bulb-icon-512.png",
+      "filename" : "1102px-Light_bulb_icon_red.svg-512.png",
       "scale" : "1x"
     },
     {
-      "idiom" : "mac",
       "size" : "512x512",
+      "idiom" : "mac",
+      "filename" : "1102px-Light_bulb_icon_red.svg-1024.png",
       "scale" : "2x"
     }
   ],
