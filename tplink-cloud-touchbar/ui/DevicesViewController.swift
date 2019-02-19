@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import TPLinkCloudClient
 
 @available(OSX 10.12.2, *)
 fileprivate extension NSTouchBar.CustomizationIdentifier {

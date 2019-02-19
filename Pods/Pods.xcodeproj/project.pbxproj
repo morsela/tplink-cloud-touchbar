@@ -7,31 +7,54 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		054020A0B396F220718220B72497D72B /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC15285CA22C4813BE752C62E1E5C1 /* MultipartFormData.swift */; };
-		23CF43A5E50F725F17761FF094D0BD1F /* Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B743D86D9097DCB90C9B41C83311E2B1 /* Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		24D84E7CCF5B9E6D0D8BE6897FFF4609 /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBC3217D358D3A86B44CAD0606C83A6 /* ResponseSerialization.swift */; };
-		3573F6983068A5EDA92B31E566438B22 /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D5A89C4A80A7D4FFEFB0246B32D04A /* Timeline.swift */; };
-		4FB3A851B716BAA32464F3072C56D10B /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99AD779088C17EA9C690E53F6F08FD3 /* Validation.swift */; };
-		530A3B09100B361306094186DEF8B6BA /* Pods-tplink-cloud-touchbar-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FB61BEC2B48D102EE15E5B46DF99B856 /* Pods-tplink-cloud-touchbar-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		540780C279ED3C9BB892AF2C378496EA /* Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FF20A1DD04CD61DD4205D67DABBDC9 /* Alamofire-dummy.m */; };
-		60B899F8FAC6F674B0EE6F5A69E2B2A3 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4773EE5CF7AEA3410B4415BD0E4FF03B /* DispatchQueue+Alamofire.swift */; };
-		7B02E84B6522A96BC9747947007EE132 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38CA61B9FC3DAABDE4EBAA1D270A98E /* ParameterEncoding.swift */; };
-		7E3D3794AEC0F0DE985CB848BF68EC01 /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19350F886705040ED2FD566DFAAC1DD3 /* AFError.swift */; };
-		7FFC212EDF93CAF60E7F16A1373B3655 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5787A6A73B24AD1FDB7AEF24C671DD /* Notifications.swift */; };
-		83813BDF00D751059AB1A1045FB7A240 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826EBB06CE0EECFAA16C4757E4B7E39E /* Alamofire.swift */; };
-		83863CD37B6BFB6F42887C452A4DA288 /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F35C601C9C74538B9A5E1477E06C865 /* ServerTrustPolicy.swift */; };
-		8E698D719D43B4A8713417AF20EFBBE4 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF925060B567CB483B99324E39D404A /* Result.swift */; };
-		95638606564452201D545FA4119C270A /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7385D1B5962A2069DBF02032E3465B7F /* SessionDelegate.swift */; };
-		9E38977E8F8CD715F2A7F47B0A436524 /* Pods-tplink-cloud-touchbar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 221FCCE887555E6EBC0D1B7543B76D7E /* Pods-tplink-cloud-touchbar-dummy.m */; };
-		A6C26370A334B5FD8F89949AF13412CB /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B1BE4DE8B2E0614B026994B89210AF /* SessionManager.swift */; };
-		B929CA9E74943C99F4697DE31DD2233D /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C13C7046C218FB029979F98227D2B29 /* NetworkReachabilityManager.swift */; };
-		E4235BE468010B5B2B6DE4B1B4054A19 /* TaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E8010FC4D5BD5D32EE5999794ABF89 /* TaskDelegate.swift */; };
-		F447C73D9ACAC59E04218B6770EBF04E /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE75F25171B81BA216D6F6A45C9D40E8 /* Request.swift */; };
-		F8A4F06035481ECC97D7C83D6FF85385 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B498A7B0C0B66E1B7DD1D535E00D4B /* Response.swift */; };
+		054020A0B396F220718220B72497D72B /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83FA3E383CB1208BFBF39158246F289 /* MultipartFormData.swift */; };
+		1095B8B3346339864C791E7952AB4C65 /* BulbDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6938102503E7AF3AE1BD21C8AEAAB6 /* BulbDevice.swift */; };
+		1BD0FF5B82D1DC7A8CC8AD61D4F4C224 /* TPLinkDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0BCB4D72AA9D644BE2E7330C25B4DF /* TPLinkDevice.swift */; };
+		23CF43A5E50F725F17761FF094D0BD1F /* Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4122B568BAEA7E10C07B07777098A98A /* Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		24D84E7CCF5B9E6D0D8BE6897FFF4609 /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8895F995DD11B8CBF554024F97B9ED /* ResponseSerialization.swift */; };
+		3297EAD6EF7640630F9D8FE7E4AF9272 /* Pods-tplink-cloud-touchbar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 221FCCE887555E6EBC0D1B7543B76D7E /* Pods-tplink-cloud-touchbar-dummy.m */; };
+		33FEE5A7F0A80DF93517139401CE956B /* TPLinkHS100.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1CF5A755B8137013F2AAE552E667A6 /* TPLinkHS100.swift */; };
+		3573F6983068A5EDA92B31E566438B22 /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD177BBB3A9151924EC20F14697DCB7D /* Timeline.swift */; };
+		4FB3A851B716BAA32464F3072C56D10B /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F778C0680233C53E741AC1AD010786D /* Validation.swift */; };
+		540780C279ED3C9BB892AF2C378496EA /* Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAA80BC04D2082D3E49898DE6FF7F30 /* Alamofire-dummy.m */; };
+		60B899F8FAC6F674B0EE6F5A69E2B2A3 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD653EBBA7254FD4150FD4A95A427F90 /* DispatchQueue+Alamofire.swift */; };
+		72E2639196197A840E14F3DDD9CD4DC2 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD36175780A62A92C51F927CBBC5B5D4 /* String+Extensions.swift */; };
+		73552FE79044A12E2259A377B08814BE /* TPLinkCloudClient-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B3AE580FAE256D69DF307BD868C6965 /* TPLinkCloudClient-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		7B02E84B6522A96BC9747947007EE132 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112A1BDFF907B3960EF8DB8F945FECD8 /* ParameterEncoding.swift */; };
+		7E3D3794AEC0F0DE985CB848BF68EC01 /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E27DFC5A9750C9BBA9EE4DB86C733B9 /* AFError.swift */; };
+		7FFC212EDF93CAF60E7F16A1373B3655 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D06604B01FF46896766804627BDA2F8 /* Notifications.swift */; };
+		83813BDF00D751059AB1A1045FB7A240 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10B722D81C1274092172392141A9471 /* Alamofire.swift */; };
+		83863CD37B6BFB6F42887C452A4DA288 /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD2FB9A1513C6231A5125B3CF152B1D /* ServerTrustPolicy.swift */; };
+		872D18CC7B7C9396455766A9AA4DC68E /* TPLinkDeviceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D709F0ACC6DF20FB1B32B1D8E8B3F2 /* TPLinkDeviceFactory.swift */; };
+		8758FE564129229307E1829C9A383858 /* TPLinkLB100.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A356983C709E93958D9B7232A450F65 /* TPLinkLB100.swift */; };
+		8E698D719D43B4A8713417AF20EFBBE4 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743C96FB43237A0E632FA5C300B86D6D /* Result.swift */; };
+		95638606564452201D545FA4119C270A /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E32E51A36E0A561A32A4A948BA4C92 /* SessionDelegate.swift */; };
+		A6C26370A334B5FD8F89949AF13412CB /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF69B6DA1611442DF0483C69D58492B /* SessionManager.swift */; };
+		B929CA9E74943C99F4697DE31DD2233D /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FB4B3D3E2E87C4EB7A755CA8B49EFD /* NetworkReachabilityManager.swift */; };
+		C7167CF6CF2D6B9BD08199FAB308A8E6 /* Pods-tplink-cloud-touchbar-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FB61BEC2B48D102EE15E5B46DF99B856 /* Pods-tplink-cloud-touchbar-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D1973BBF96A05EF18730D8FD7D5EEA04 /* TPLinkCloudClient-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCB7B668095B92FCF47BC6BAC234B83 /* TPLinkCloudClient-dummy.m */; };
+		E4235BE468010B5B2B6DE4B1B4054A19 /* TaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587F82E83472F17142AF43806CDE1A74 /* TaskDelegate.swift */; };
+		E920F2B85ED598E9ADE316F9C2B63418 /* TPLinkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C8D9EB52089DE3BDB55D87B89A574E /* TPLinkClient.swift */; };
+		F447C73D9ACAC59E04218B6770EBF04E /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77086CFD7036F6D83F6E3071DE3A13A4 /* Request.swift */; };
+		F8A4F06035481ECC97D7C83D6FF85385 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B210B22AFC6B646D7F9BFBADE3C426 /* Response.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		863446768E45AF00F19025168735750E /* PBXContainerItemProxy */ = {
+		14F2240958990A6DF51CAB86FDB281FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 95C31791CC30F4487BB91E6A0F9757CE;
+			remoteInfo = Alamofire;
+		};
+		BE503BFA77B684E1D272874FD5774C64 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 731A43C9460F9FD517D77E98F2A57CEA;
+			remoteInfo = TPLinkCloudClient;
+		};
+		CF5823A5EF4786B9344AF7191475914A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
@@ -41,43 +64,63 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		03D5A89C4A80A7D4FFEFB0246B32D04A /* Timeline.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Timeline.swift; path = Source/Timeline.swift; sourceTree = "<group>"; };
-		11F3FF40EC8657E5A8D8FAF29439565B /* Alamofire.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.xcconfig; sourceTree = "<group>"; };
+		0A356983C709E93958D9B7232A450F65 /* TPLinkLB100.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TPLinkLB100.swift; path = TPLinkCloudClient/devices/TPLinkLB100.swift; sourceTree = "<group>"; };
+		0B3AE580FAE256D69DF307BD868C6965 /* TPLinkCloudClient-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "TPLinkCloudClient-umbrella.h"; path = "../../Headers/Public/TPLinkCloudClient/TPLinkCloudClient-umbrella.h"; sourceTree = "<group>"; };
+		112A1BDFF907B3960EF8DB8F945FECD8 /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = "<group>"; };
 		13407BDA3A10A5C5B89CBD91517A3D0A /* Pods-tplink-cloud-touchbar-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-tplink-cloud-touchbar-acknowledgements.markdown"; sourceTree = "<group>"; };
-		19350F886705040ED2FD566DFAAC1DD3 /* AFError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AFError.swift; path = Source/AFError.swift; sourceTree = "<group>"; };
-		19B498A7B0C0B66E1B7DD1D535E00D4B /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Source/Response.swift; sourceTree = "<group>"; };
-		20FF20A1DD04CD61DD4205D67DABBDC9 /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
+		16FB4B3D3E2E87C4EB7A755CA8B49EFD /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkReachabilityManager.swift; path = Source/NetworkReachabilityManager.swift; sourceTree = "<group>"; };
+		1FCB7B668095B92FCF47BC6BAC234B83 /* TPLinkCloudClient-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TPLinkCloudClient-dummy.m"; sourceTree = "<group>"; };
 		221FCCE887555E6EBC0D1B7543B76D7E /* Pods-tplink-cloud-touchbar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-tplink-cloud-touchbar-dummy.m"; sourceTree = "<group>"; };
-		2C13C7046C218FB029979F98227D2B29 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkReachabilityManager.swift; path = Source/NetworkReachabilityManager.swift; sourceTree = "<group>"; };
-		33E7D4CDAE7377FE75EA09944D17F08D /* Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-prefix.pch"; sourceTree = "<group>"; };
-		4773EE5CF7AEA3410B4415BD0E4FF03B /* DispatchQueue+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DispatchQueue+Alamofire.swift"; path = "Source/DispatchQueue+Alamofire.swift"; sourceTree = "<group>"; };
-		5ABC15285CA22C4813BE752C62E1E5C1 /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
-		5FF7CFAC3F11E57FA0A0991977501525 /* libAlamofire.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libAlamofire.a; path = libAlamofire.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		27E32E51A36E0A561A32A4A948BA4C92 /* SessionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionDelegate.swift; path = Source/SessionDelegate.swift; sourceTree = "<group>"; };
+		2F778C0680233C53E741AC1AD010786D /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Validation.swift; sourceTree = "<group>"; };
+		2FB9CAAF0A4FB86C13B70FFB3A840B89 /* TPLinkCloudClient.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TPLinkCloudClient.xcconfig; sourceTree = "<group>"; };
+		32B210B22AFC6B646D7F9BFBADE3C426 /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Source/Response.swift; sourceTree = "<group>"; };
+		3E27DFC5A9750C9BBA9EE4DB86C733B9 /* AFError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AFError.swift; path = Source/AFError.swift; sourceTree = "<group>"; };
+		4122B568BAEA7E10C07B07777098A98A /* Alamofire-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Alamofire-umbrella.h"; path = "../../Headers/Public/Alamofire/Alamofire-umbrella.h"; sourceTree = "<group>"; };
+		587F82E83472F17142AF43806CDE1A74 /* TaskDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TaskDelegate.swift; path = Source/TaskDelegate.swift; sourceTree = "<group>"; };
+		5CE847CD739C523C017269494EB4DABE /* Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-prefix.pch"; sourceTree = "<group>"; };
+		5EF69B6DA1611442DF0483C69D58492B /* SessionManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionManager.swift; path = Source/SessionManager.swift; sourceTree = "<group>"; };
+		64D709F0ACC6DF20FB1B32B1D8E8B3F2 /* TPLinkDeviceFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TPLinkDeviceFactory.swift; path = TPLinkCloudClient/devices/TPLinkDeviceFactory.swift; sourceTree = "<group>"; };
 		6586F211B4F18F97E6CAAAEFDF3ED274 /* Pods-tplink-cloud-touchbar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-tplink-cloud-touchbar.release.xcconfig"; sourceTree = "<group>"; };
 		671A7BAE4AFDED3425EEAFB75C4C972A /* Pods-tplink-cloud-touchbar-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-tplink-cloud-touchbar-resources.sh"; sourceTree = "<group>"; };
 		6B9E905DCF79FB2FE427832DE57076E8 /* Pods-tplink-cloud-touchbar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-tplink-cloud-touchbar.debug.xcconfig"; sourceTree = "<group>"; };
-		72A56F75DFD0DE64A6DC2F1A5A8537B7 /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = Alamofire.modulemap; path = ../../Headers/Public/Alamofire/Alamofire.modulemap; sourceTree = "<group>"; };
-		7385D1B5962A2069DBF02032E3465B7F /* SessionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionDelegate.swift; path = Source/SessionDelegate.swift; sourceTree = "<group>"; };
-		76F89A7BFCDC0E5799B203BC84D866DE /* libPods-tplink-cloud-touchbar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-tplink-cloud-touchbar.a"; path = "libPods-tplink-cloud-touchbar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		77B1BE4DE8B2E0614B026994B89210AF /* SessionManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionManager.swift; path = Source/SessionManager.swift; sourceTree = "<group>"; };
-		7BBC3217D358D3A86B44CAD0606C83A6 /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/ResponseSerialization.swift; sourceTree = "<group>"; };
-		826EBB06CE0EECFAA16C4757E4B7E39E /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
+		6D06604B01FF46896766804627BDA2F8 /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
+		743C96FB43237A0E632FA5C300B86D6D /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/Result.swift; sourceTree = "<group>"; };
+		77086CFD7036F6D83F6E3071DE3A13A4 /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Request.swift; sourceTree = "<group>"; };
+		7B6938102503E7AF3AE1BD21C8AEAAB6 /* BulbDevice.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BulbDevice.swift; path = TPLinkCloudClient/devices/BulbDevice.swift; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9F35C601C9C74538B9A5E1477E06C865 /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ServerTrustPolicy.swift; path = Source/ServerTrustPolicy.swift; sourceTree = "<group>"; };
-		A99AD779088C17EA9C690E53F6F08FD3 /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Validation.swift; sourceTree = "<group>"; };
-		B38CA61B9FC3DAABDE4EBAA1D270A98E /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = "<group>"; };
-		B743D86D9097DCB90C9B41C83311E2B1 /* Alamofire-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Alamofire-umbrella.h"; path = "../../Headers/Public/Alamofire/Alamofire-umbrella.h"; sourceTree = "<group>"; };
+		9AA8F171B58BA156A28EB06D40A8953F /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = Alamofire.modulemap; path = ../../Headers/Public/Alamofire/Alamofire.modulemap; sourceTree = "<group>"; };
+		A7C8D9EB52089DE3BDB55D87B89A574E /* TPLinkClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TPLinkClient.swift; path = TPLinkCloudClient/api/TPLinkClient.swift; sourceTree = "<group>"; };
+		A83FA3E383CB1208BFBF39158246F289 /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
+		AE8895F995DD11B8CBF554024F97B9ED /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/ResponseSerialization.swift; sourceTree = "<group>"; };
+		AFD2FB9A1513C6231A5125B3CF152B1D /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ServerTrustPolicy.swift; path = Source/ServerTrustPolicy.swift; sourceTree = "<group>"; };
+		C22C21A236ABEA157C825C0FD589DE61 /* TPLinkCloudClient-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TPLinkCloudClient-prefix.pch"; sourceTree = "<group>"; };
 		C9F4587DA4A56E8764FC70C271D6A2DE /* Pods-tplink-cloud-touchbar-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-tplink-cloud-touchbar-frameworks.sh"; sourceTree = "<group>"; };
-		D4E8010FC4D5BD5D32EE5999794ABF89 /* TaskDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TaskDelegate.swift; path = Source/TaskDelegate.swift; sourceTree = "<group>"; };
-		DC5787A6A73B24AD1FDB7AEF24C671DD /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
+		CAAA80BC04D2082D3E49898DE6FF7F30 /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
+		CBAB7AD0CFE8040A0DFB439023ABF3A4 /* libAlamofire.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libAlamofire.a; path = libAlamofire.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD36175780A62A92C51F927CBBC5B5D4 /* String+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+Extensions.swift"; path = "TPLinkCloudClient/extensions/String+Extensions.swift"; sourceTree = "<group>"; };
+		D0AA168E3C9DB5EA2D8305943DB5EA05 /* TPLinkCloudClient.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = TPLinkCloudClient.modulemap; path = ../../Headers/Public/TPLinkCloudClient/TPLinkCloudClient.modulemap; sourceTree = "<group>"; };
 		DC7EC3CDC49B24150EDF0AB44CAC23BB /* Pods-tplink-cloud-touchbar-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-tplink-cloud-touchbar-acknowledgements.plist"; sourceTree = "<group>"; };
-		DCF925060B567CB483B99324E39D404A /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/Result.swift; sourceTree = "<group>"; };
+		DD177BBB3A9151924EC20F14697DCB7D /* Timeline.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Timeline.swift; path = Source/Timeline.swift; sourceTree = "<group>"; };
+		DE1CF5A755B8137013F2AAE552E667A6 /* TPLinkHS100.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TPLinkHS100.swift; path = TPLinkCloudClient/devices/TPLinkHS100.swift; sourceTree = "<group>"; };
 		E4022598AA8FC978E9716F11B29E38A4 /* Pods-tplink-cloud-touchbar.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-tplink-cloud-touchbar.modulemap"; sourceTree = "<group>"; };
-		EE75F25171B81BA216D6F6A45C9D40E8 /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Request.swift; sourceTree = "<group>"; };
+		E71D31BC4FD50A7BBAC06911D0D5C860 /* Alamofire.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.xcconfig; sourceTree = "<group>"; };
+		EBCFF9411669070219560A31F8F81370 /* libTPLinkCloudClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libTPLinkCloudClient.a; path = libTPLinkCloudClient.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED2E963FB7600D70F3FEAFEC1834A5F3 /* libPods-tplink-cloud-touchbar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-tplink-cloud-touchbar.a"; path = "libPods-tplink-cloud-touchbar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF0BCB4D72AA9D644BE2E7330C25B4DF /* TPLinkDevice.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TPLinkDevice.swift; path = TPLinkCloudClient/devices/TPLinkDevice.swift; sourceTree = "<group>"; };
+		F10B722D81C1274092172392141A9471 /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
 		FB61BEC2B48D102EE15E5B46DF99B856 /* Pods-tplink-cloud-touchbar-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-tplink-cloud-touchbar-umbrella.h"; sourceTree = "<group>"; };
+		FD653EBBA7254FD4150FD4A95A427F90 /* DispatchQueue+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DispatchQueue+Alamofire.swift"; path = "Source/DispatchQueue+Alamofire.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		084F39EABBA728FF7DF6E57DF75CFA12 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		578E2F378C0445526D4EF2BFA6967908 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -85,7 +128,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		95675FA7B2EB3CBE8F826D50428BC152 /* Frameworks */ = {
+		D0BF9DE7ADE8AFD976A3261B6A8EBC33 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -95,6 +138,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		092F252B137AE9DEB11426CACC508E1D /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D0AA168E3C9DB5EA2D8305943DB5EA05 /* TPLinkCloudClient.modulemap */,
+				2FB9CAAF0A4FB86C13B70FFB3A840B89 /* TPLinkCloudClient.xcconfig */,
+				1FCB7B668095B92FCF47BC6BAC234B83 /* TPLinkCloudClient-dummy.m */,
+				C22C21A236ABEA157C825C0FD589DE61 /* TPLinkCloudClient-prefix.pch */,
+				0B3AE580FAE256D69DF307BD868C6965 /* TPLinkCloudClient-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/TPLinkCloudClient";
+			sourceTree = "<group>";
+		};
 		0F8D2E47FE03D3B91B51069F7C273AF4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,38 +175,69 @@
 			path = "Target Support Files/Pods-tplink-cloud-touchbar";
 			sourceTree = "<group>";
 		};
-		35F128EB69B6F7FB7DA93BBF6C130FAE /* Pods */ = {
+		1C4F58D45041C87DE8E1154377D3EE5E /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				6728131DFEC54B34467C704B51824101 /* Alamofire */,
+				9AA8F171B58BA156A28EB06D40A8953F /* Alamofire.modulemap */,
+				E71D31BC4FD50A7BBAC06911D0D5C860 /* Alamofire.xcconfig */,
+				CAAA80BC04D2082D3E49898DE6FF7F30 /* Alamofire-dummy.m */,
+				5CE847CD739C523C017269494EB4DABE /* Alamofire-prefix.pch */,
+				4122B568BAEA7E10C07B07777098A98A /* Alamofire-umbrella.h */,
 			);
-			name = Pods;
+			name = "Support Files";
+			path = "../Target Support Files/Alamofire";
 			sourceTree = "<group>";
 		};
-		6728131DFEC54B34467C704B51824101 /* Alamofire */ = {
+		23098F2CEB65798F890AAE7A0122BA29 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				19350F886705040ED2FD566DFAAC1DD3 /* AFError.swift */,
-				826EBB06CE0EECFAA16C4757E4B7E39E /* Alamofire.swift */,
-				4773EE5CF7AEA3410B4415BD0E4FF03B /* DispatchQueue+Alamofire.swift */,
-				5ABC15285CA22C4813BE752C62E1E5C1 /* MultipartFormData.swift */,
-				2C13C7046C218FB029979F98227D2B29 /* NetworkReachabilityManager.swift */,
-				DC5787A6A73B24AD1FDB7AEF24C671DD /* Notifications.swift */,
-				B38CA61B9FC3DAABDE4EBAA1D270A98E /* ParameterEncoding.swift */,
-				EE75F25171B81BA216D6F6A45C9D40E8 /* Request.swift */,
-				19B498A7B0C0B66E1B7DD1D535E00D4B /* Response.swift */,
-				7BBC3217D358D3A86B44CAD0606C83A6 /* ResponseSerialization.swift */,
-				DCF925060B567CB483B99324E39D404A /* Result.swift */,
-				9F35C601C9C74538B9A5E1477E06C865 /* ServerTrustPolicy.swift */,
-				7385D1B5962A2069DBF02032E3465B7F /* SessionDelegate.swift */,
-				77B1BE4DE8B2E0614B026994B89210AF /* SessionManager.swift */,
-				D4E8010FC4D5BD5D32EE5999794ABF89 /* TaskDelegate.swift */,
-				03D5A89C4A80A7D4FFEFB0246B32D04A /* Timeline.swift */,
-				A99AD779088C17EA9C690E53F6F08FD3 /* Validation.swift */,
-				D755E3DD7291D38166C66ED9E9790533 /* Support Files */,
+				CBAB7AD0CFE8040A0DFB439023ABF3A4 /* libAlamofire.a */,
+				ED2E963FB7600D70F3FEAFEC1834A5F3 /* libPods-tplink-cloud-touchbar.a */,
+				EBCFF9411669070219560A31F8F81370 /* libTPLinkCloudClient.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		56329D0CDB9304EDCA1B9C03A5C1D514 /* Alamofire */ = {
+			isa = PBXGroup;
+			children = (
+				3E27DFC5A9750C9BBA9EE4DB86C733B9 /* AFError.swift */,
+				F10B722D81C1274092172392141A9471 /* Alamofire.swift */,
+				FD653EBBA7254FD4150FD4A95A427F90 /* DispatchQueue+Alamofire.swift */,
+				A83FA3E383CB1208BFBF39158246F289 /* MultipartFormData.swift */,
+				16FB4B3D3E2E87C4EB7A755CA8B49EFD /* NetworkReachabilityManager.swift */,
+				6D06604B01FF46896766804627BDA2F8 /* Notifications.swift */,
+				112A1BDFF907B3960EF8DB8F945FECD8 /* ParameterEncoding.swift */,
+				77086CFD7036F6D83F6E3071DE3A13A4 /* Request.swift */,
+				32B210B22AFC6B646D7F9BFBADE3C426 /* Response.swift */,
+				AE8895F995DD11B8CBF554024F97B9ED /* ResponseSerialization.swift */,
+				743C96FB43237A0E632FA5C300B86D6D /* Result.swift */,
+				AFD2FB9A1513C6231A5125B3CF152B1D /* ServerTrustPolicy.swift */,
+				27E32E51A36E0A561A32A4A948BA4C92 /* SessionDelegate.swift */,
+				5EF69B6DA1611442DF0483C69D58492B /* SessionManager.swift */,
+				587F82E83472F17142AF43806CDE1A74 /* TaskDelegate.swift */,
+				DD177BBB3A9151924EC20F14697DCB7D /* Timeline.swift */,
+				2F778C0680233C53E741AC1AD010786D /* Validation.swift */,
+				1C4F58D45041C87DE8E1154377D3EE5E /* Support Files */,
 			);
 			name = Alamofire;
 			path = Alamofire;
+			sourceTree = "<group>";
+		};
+		6632FE482A8E3C7C78BA6B8739305858 /* TPLinkCloudClient */ = {
+			isa = PBXGroup;
+			children = (
+				7B6938102503E7AF3AE1BD21C8AEAAB6 /* BulbDevice.swift */,
+				CD36175780A62A92C51F927CBBC5B5D4 /* String+Extensions.swift */,
+				A7C8D9EB52089DE3BDB55D87B89A574E /* TPLinkClient.swift */,
+				EF0BCB4D72AA9D644BE2E7330C25B4DF /* TPLinkDevice.swift */,
+				64D709F0ACC6DF20FB1B32B1D8E8B3F2 /* TPLinkDeviceFactory.swift */,
+				DE1CF5A755B8137013F2AAE552E667A6 /* TPLinkHS100.swift */,
+				0A356983C709E93958D9B7232A450F65 /* TPLinkLB100.swift */,
+				092F252B137AE9DEB11426CACC508E1D /* Support Files */,
+			);
+			name = TPLinkCloudClient;
+			path = TPLinkCloudClient;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -158,19 +245,10 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				0F8D2E47FE03D3B91B51069F7C273AF4 /* Frameworks */,
-				35F128EB69B6F7FB7DA93BBF6C130FAE /* Pods */,
-				BCA41A6FE8BDAB3D683D2A7D98A0D0F7 /* Products */,
+				E25C7BE9457B270724BDE8274F5C6F02 /* Pods */,
+				23098F2CEB65798F890AAE7A0122BA29 /* Products */,
 				CD9F5A6A095B06CB3020C8CF9E9662EF /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		BCA41A6FE8BDAB3D683D2A7D98A0D0F7 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				5FF7CFAC3F11E57FA0A0991977501525 /* libAlamofire.a */,
-				76F89A7BFCDC0E5799B203BC84D866DE /* libPods-tplink-cloud-touchbar.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		CD9F5A6A095B06CB3020C8CF9E9662EF /* Targets Support Files */ = {
@@ -181,17 +259,13 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		D755E3DD7291D38166C66ED9E9790533 /* Support Files */ = {
+		E25C7BE9457B270724BDE8274F5C6F02 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				72A56F75DFD0DE64A6DC2F1A5A8537B7 /* Alamofire.modulemap */,
-				11F3FF40EC8657E5A8D8FAF29439565B /* Alamofire.xcconfig */,
-				20FF20A1DD04CD61DD4205D67DABBDC9 /* Alamofire-dummy.m */,
-				33E7D4CDAE7377FE75EA09944D17F08D /* Alamofire-prefix.pch */,
-				B743D86D9097DCB90C9B41C83311E2B1 /* Alamofire-umbrella.h */,
+				56329D0CDB9304EDCA1B9C03A5C1D514 /* Alamofire */,
+				6632FE482A8E3C7C78BA6B8739305858 /* TPLinkCloudClient */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/Alamofire";
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,33 +279,61 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		801B8B0897BDAB2235DEA69F3FD05325 /* Headers */ = {
+		77DCA6490D2052567195012942F5CAF8 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				530A3B09100B361306094186DEF8B6BA /* Pods-tplink-cloud-touchbar-umbrella.h in Headers */,
+				C7167CF6CF2D6B9BD08199FAB308A8E6 /* Pods-tplink-cloud-touchbar-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFFDA6B3BA2589DDCADF9F4C246F67E9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73552FE79044A12E2259A377B08814BE /* TPLinkCloudClient-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		0D873CFAEC086D3B1E8F25773793BE83 /* Pods-tplink-cloud-touchbar */ = {
+		731A43C9460F9FD517D77E98F2A57CEA /* TPLinkCloudClient */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 72209ED92E4D36BF7D4DDE86984B1F64 /* Build configuration list for PBXNativeTarget "Pods-tplink-cloud-touchbar" */;
+			buildConfigurationList = 83173986D10C12245645CDCEBF141F34 /* Build configuration list for PBXNativeTarget "TPLinkCloudClient" */;
 			buildPhases = (
-				018C5F2478B3C5C37A8AFDF0F3D46D04 /* Sources */,
-				95675FA7B2EB3CBE8F826D50428BC152 /* Frameworks */,
-				801B8B0897BDAB2235DEA69F3FD05325 /* Headers */,
+				2DFC62C1C7F6FBBD0093937A26BECE49 /* Sources */,
+				D0BF9DE7ADE8AFD976A3261B6A8EBC33 /* Frameworks */,
+				AFFDA6B3BA2589DDCADF9F4C246F67E9 /* Headers */,
+				A16E4961328937418805047F259F7F2B /* Copy generated compatibility header */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				3CF5C658A2880D095CED33C168FE5390 /* PBXTargetDependency */,
+				39A6C58C533BA6FC46BA598703C4961F /* PBXTargetDependency */,
+			);
+			name = TPLinkCloudClient;
+			productName = TPLinkCloudClient;
+			productReference = EBCFF9411669070219560A31F8F81370 /* libTPLinkCloudClient.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		78D325298151B5BFD12E3E8DF59D488F /* Pods-tplink-cloud-touchbar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 41D0F7C4C18253ECCF526145C7419797 /* Build configuration list for PBXNativeTarget "Pods-tplink-cloud-touchbar" */;
+			buildPhases = (
+				A2A0FB17648ED40FEC4BDF45B2810DCE /* Sources */,
+				084F39EABBA728FF7DF6E57DF75CFA12 /* Frameworks */,
+				77DCA6490D2052567195012942F5CAF8 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A559673BB47B6EE80162A3D50EB2904C /* PBXTargetDependency */,
+				2D0C8F71E1C357B78A93566DBCFF79C8 /* PBXTargetDependency */,
 			);
 			name = "Pods-tplink-cloud-touchbar";
 			productName = "Pods-tplink-cloud-touchbar";
-			productReference = 76F89A7BFCDC0E5799B203BC84D866DE /* libPods-tplink-cloud-touchbar.a */;
+			productReference = ED2E963FB7600D70F3FEAFEC1834A5F3 /* libPods-tplink-cloud-touchbar.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		95C31791CC30F4487BB91E6A0F9757CE /* Alamofire */ = {
@@ -249,7 +351,7 @@
 			);
 			name = Alamofire;
 			productName = Alamofire;
-			productReference = 5FF7CFAC3F11E57FA0A0991977501525 /* libAlamofire.a */;
+			productReference = CBAB7AD0CFE8040A0DFB439023ABF3A4 /* libAlamofire.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -269,12 +371,13 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = BCA41A6FE8BDAB3D683D2A7D98A0D0F7 /* Products */;
+			productRefGroup = 23098F2CEB65798F890AAE7A0122BA29 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				95C31791CC30F4487BB91E6A0F9757CE /* Alamofire */,
-				0D873CFAEC086D3B1E8F25773793BE83 /* Pods-tplink-cloud-touchbar */,
+				78D325298151B5BFD12E3E8DF59D488F /* Pods-tplink-cloud-touchbar */,
+				731A43C9460F9FD517D77E98F2A57CEA /* TPLinkCloudClient */,
 			);
 		};
 /* End PBXProject section */
@@ -301,14 +404,50 @@
 			shellScript = "COMPATIBILITY_HEADER_PATH=\"${BUILT_PRODUCTS_DIR}/Swift Compatibility Header/${PRODUCT_MODULE_NAME}-Swift.h\"\nMODULE_MAP_PATH=\"${BUILT_PRODUCTS_DIR}/${PRODUCT_MODULE_NAME}.modulemap\"\n\nditto \"${DERIVED_SOURCES_DIR}/${PRODUCT_MODULE_NAME}-Swift.h\" \"${COMPATIBILITY_HEADER_PATH}\"\nditto \"${PODS_ROOT}/Headers/Public/Alamofire/Alamofire.modulemap\" \"${MODULE_MAP_PATH}\"\nditto \"${PODS_ROOT}/Headers/Public/Alamofire/Alamofire-umbrella.h\" \"${BUILT_PRODUCTS_DIR}\"\nprintf \"\\n\\nmodule ${PRODUCT_MODULE_NAME}.Swift {\\n  header \\\"${COMPATIBILITY_HEADER_PATH}\\\"\\n  requires objc\\n}\\n\" >> \"${MODULE_MAP_PATH}\"\n";
 			showEnvVarsInLog = 1;
 		};
+		A16E4961328937418805047F259F7F2B /* Copy generated compatibility header */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${DERIVED_SOURCES_DIR}/${PRODUCT_MODULE_NAME}-Swift.h",
+				"${PODS_ROOT}/Headers/Public/TPLinkCloudClient/TPLinkCloudClient.modulemap",
+				"${PODS_ROOT}/Headers/Public/TPLinkCloudClient/TPLinkCloudClient-umbrella.h",
+			);
+			name = "Copy generated compatibility header";
+			outputPaths = (
+				"${BUILT_PRODUCTS_DIR}/${PRODUCT_MODULE_NAME}.modulemap",
+				"${BUILT_PRODUCTS_DIR}/TPLinkCloudClient-umbrella.h",
+				"${BUILT_PRODUCTS_DIR}/Swift Compatibility Header/${PRODUCT_MODULE_NAME}-Swift.h",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "COMPATIBILITY_HEADER_PATH=\"${BUILT_PRODUCTS_DIR}/Swift Compatibility Header/${PRODUCT_MODULE_NAME}-Swift.h\"\nMODULE_MAP_PATH=\"${BUILT_PRODUCTS_DIR}/${PRODUCT_MODULE_NAME}.modulemap\"\n\nditto \"${DERIVED_SOURCES_DIR}/${PRODUCT_MODULE_NAME}-Swift.h\" \"${COMPATIBILITY_HEADER_PATH}\"\nditto \"${PODS_ROOT}/Headers/Public/TPLinkCloudClient/TPLinkCloudClient.modulemap\" \"${MODULE_MAP_PATH}\"\nditto \"${PODS_ROOT}/Headers/Public/TPLinkCloudClient/TPLinkCloudClient-umbrella.h\" \"${BUILT_PRODUCTS_DIR}\"\nprintf \"\\n\\nmodule ${PRODUCT_MODULE_NAME}.Swift {\\n  header \\\"${COMPATIBILITY_HEADER_PATH}\\\"\\n  requires objc\\n}\\n\" >> \"${MODULE_MAP_PATH}\"\n";
+			showEnvVarsInLog = 1;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		018C5F2478B3C5C37A8AFDF0F3D46D04 /* Sources */ = {
+		2DFC62C1C7F6FBBD0093937A26BECE49 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E38977E8F8CD715F2A7F47B0A436524 /* Pods-tplink-cloud-touchbar-dummy.m in Sources */,
+				1095B8B3346339864C791E7952AB4C65 /* BulbDevice.swift in Sources */,
+				72E2639196197A840E14F3DDD9CD4DC2 /* String+Extensions.swift in Sources */,
+				E920F2B85ED598E9ADE316F9C2B63418 /* TPLinkClient.swift in Sources */,
+				D1973BBF96A05EF18730D8FD7D5EEA04 /* TPLinkCloudClient-dummy.m in Sources */,
+				1BD0FF5B82D1DC7A8CC8AD61D4F4C224 /* TPLinkDevice.swift in Sources */,
+				872D18CC7B7C9396455766A9AA4DC68E /* TPLinkDeviceFactory.swift in Sources */,
+				33FEE5A7F0A80DF93517139401CE956B /* TPLinkHS100.swift in Sources */,
+				8758FE564129229307E1829C9A383858 /* TPLinkLB100.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2A0FB17648ED40FEC4BDF45B2810DCE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3297EAD6EF7640630F9D8FE7E4AF9272 /* Pods-tplink-cloud-touchbar-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,15 +479,81 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		3CF5C658A2880D095CED33C168FE5390 /* PBXTargetDependency */ = {
+		2D0C8F71E1C357B78A93566DBCFF79C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TPLinkCloudClient;
+			target = 731A43C9460F9FD517D77E98F2A57CEA /* TPLinkCloudClient */;
+			targetProxy = BE503BFA77B684E1D272874FD5774C64 /* PBXContainerItemProxy */;
+		};
+		39A6C58C533BA6FC46BA598703C4961F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Alamofire;
 			target = 95C31791CC30F4487BB91E6A0F9757CE /* Alamofire */;
-			targetProxy = 863446768E45AF00F19025168735750E /* PBXContainerItemProxy */;
+			targetProxy = CF5823A5EF4786B9344AF7191475914A /* PBXContainerItemProxy */;
+		};
+		A559673BB47B6EE80162A3D50EB2904C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Alamofire;
+			target = 95C31791CC30F4487BB91E6A0F9757CE /* Alamofire */;
+			targetProxy = 14F2240958990A6DF51CAB86FDB281FB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		09F0FD87EC112A801F073E39B0DE2D11 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2FB9CAAF0A4FB86C13B70FFB3A840B89 /* TPLinkCloudClient.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				EXECUTABLE_PREFIX = lib;
+				GCC_PREFIX_HEADER = "Target Support Files/TPLinkCloudClient/TPLinkCloudClient-prefix.pch";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MODULEMAP_FILE = Headers/Public/TPLinkCloudClient/TPLinkCloudClient.modulemap;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = TPLinkCloudClient;
+				PRODUCT_NAME = TPLinkCloudClient;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		0FEC2DD97E9A0BEDD78C7CF659BB1D83 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2FB9CAAF0A4FB86C13B70FFB3A840B89 /* TPLinkCloudClient.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				EXECUTABLE_PREFIX = lib;
+				GCC_PREFIX_HEADER = "Target Support Files/TPLinkCloudClient/TPLinkCloudClient-prefix.pch";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MODULEMAP_FILE = Headers/Public/TPLinkCloudClient/TPLinkCloudClient.modulemap;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = TPLinkCloudClient;
+				PRODUCT_NAME = TPLinkCloudClient;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
 		1C319FE8FEF78C160E1BFEB270E25F16 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -404,30 +609,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
-			};
-			name = Release;
-		};
-		420AB8DABC87376C5BAFBD9CCF55C1E2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6586F211B4F18F97E6CAAAEFDF3ED274 /* Pods-tplink-cloud-touchbar.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				EXECUTABLE_PREFIX = lib;
-				MACH_O_TYPE = staticlib;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MODULEMAP_FILE = "Target Support Files/Pods-tplink-cloud-touchbar/Pods-tplink-cloud-touchbar.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
 		};
@@ -496,7 +677,7 @@
 		};
 		8358D5C4A4FC7DAEA8E532D732E3A693 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 11F3FF40EC8657E5A8D8FAF29439565B /* Alamofire.xcconfig */;
+			baseConfigurationReference = E71D31BC4FD50A7BBAC06911D0D5C860 /* Alamofire.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "-";
@@ -521,9 +702,9 @@
 			};
 			name = Debug;
 		};
-		B48AB82CA70643E711EB8DA2C4F218FC /* Debug */ = {
+		89428187F3A095C817E7902CD6A75146 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6B9E905DCF79FB2FE427832DE57076E8 /* Pods-tplink-cloud-touchbar.debug.xcconfig */;
+			baseConfigurationReference = 6586F211B4F18F97E6CAAAEFDF3ED274 /* Pods-tplink-cloud-touchbar.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -541,14 +722,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
-			name = Debug;
+			name = Release;
 		};
 		E329B86828DF28128433A7878993C17F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 11F3FF40EC8657E5A8D8FAF29439565B /* Alamofire.xcconfig */;
+			baseConfigurationReference = E71D31BC4FD50A7BBAC06911D0D5C860 /* Alamofire.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "-";
@@ -573,6 +753,31 @@
 			};
 			name = Release;
 		};
+		F50E8409AD6916E9A10D8C18E8302D4A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B9E905DCF79FB2FE427832DE57076E8 /* Pods-tplink-cloud-touchbar.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				EXECUTABLE_PREFIX = lib;
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MODULEMAP_FILE = "Target Support Files/Pods-tplink-cloud-touchbar/Pods-tplink-cloud-touchbar.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -585,11 +790,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		72209ED92E4D36BF7D4DDE86984B1F64 /* Build configuration list for PBXNativeTarget "Pods-tplink-cloud-touchbar" */ = {
+		41D0F7C4C18253ECCF526145C7419797 /* Build configuration list for PBXNativeTarget "Pods-tplink-cloud-touchbar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B48AB82CA70643E711EB8DA2C4F218FC /* Debug */,
-				420AB8DABC87376C5BAFBD9CCF55C1E2 /* Release */,
+				F50E8409AD6916E9A10D8C18E8302D4A /* Debug */,
+				89428187F3A095C817E7902CD6A75146 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -599,6 +804,15 @@
 			buildConfigurations = (
 				8358D5C4A4FC7DAEA8E532D732E3A693 /* Debug */,
 				E329B86828DF28128433A7878993C17F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		83173986D10C12245645CDCEBF141F34 /* Build configuration list for PBXNativeTarget "TPLinkCloudClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09F0FD87EC112A801F073E39B0DE2D11 /* Debug */,
+				0FEC2DD97E9A0BEDD78C7CF659BB1D83 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

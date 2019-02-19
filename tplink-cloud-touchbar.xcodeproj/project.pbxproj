@@ -8,34 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		0E934E4DCCDE012433856BF8 /* libPods-tplink-cloud-touchbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8CCAE7A66618972E6EA5100 /* libPods-tplink-cloud-touchbar.a */; };
-		D6108BF421E3238700B2BFE4 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6108BF321E3238700B2BFE4 /* String+Extensions.swift */; };
 		D6108BF621E45F7D00B2BFE4 /* DevicePopoverTouchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6108BF521E45F7D00B2BFE4 /* DevicePopoverTouchBar.swift */; };
 		D6108BF921EA8B8A00B2BFE4 /* IconTextItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6108BF821EA8B8A00B2BFE4 /* IconTextItemView.swift */; };
 		D6108BFB21EAE99E00B2BFE4 /* DevicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6108BFA21EAE99E00B2BFE4 /* DevicesViewController.swift */; };
-		D6108BFE21EAF17600B2BFE4 /* TPLinkDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6108BFD21EAF17600B2BFE4 /* TPLinkDevice.swift */; };
-		D6108C0121EAF1AA00B2BFE4 /* BulbDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6108C0021EAF1AA00B2BFE4 /* BulbDevice.swift */; };
-		D6108C0321EAF1C300B2BFE4 /* TPLinkHS100.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6108C0221EAF1C300B2BFE4 /* TPLinkHS100.swift */; };
-		D6108C0521EAF1E400B2BFE4 /* TPLinkLB100.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6108C0421EAF1E400B2BFE4 /* TPLinkLB100.swift */; };
-		D6108C0721EAF1F300B2BFE4 /* TPLinkDeviceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6108C0621EAF1F300B2BFE4 /* TPLinkDeviceFactory.swift */; };
 		D62730FC21E16D0D00247E6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62730FB21E16D0D00247E6D /* AppDelegate.swift */; };
 		D62730FE21E16D0F00247E6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D62730FD21E16D0F00247E6D /* Assets.xcassets */; };
 		D627310121E16D0F00247E6D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D62730FF21E16D0F00247E6D /* MainMenu.xib */; };
 		D627310A21E16DD800247E6D /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D627310921E16DD800247E6D /* WindowController.swift */; };
-		D627310F21E28BB800247E6D /* TPLinkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D627310E21E28BB800247E6D /* TPLinkClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		06A0F153C3EACA640B00FBC1 /* Pods-tplink-cloud-touchbar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tplink-cloud-touchbar.release.xcconfig"; path = "Pods/Target Support Files/Pods-tplink-cloud-touchbar/Pods-tplink-cloud-touchbar.release.xcconfig"; sourceTree = "<group>"; };
 		93809D8C03E670FCF248A1E8 /* Pods-tplink-cloud-touchbar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tplink-cloud-touchbar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tplink-cloud-touchbar/Pods-tplink-cloud-touchbar.debug.xcconfig"; sourceTree = "<group>"; };
-		D6108BF321E3238700B2BFE4 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		D6108BF521E45F7D00B2BFE4 /* DevicePopoverTouchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicePopoverTouchBar.swift; sourceTree = "<group>"; };
 		D6108BF821EA8B8A00B2BFE4 /* IconTextItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconTextItemView.swift; sourceTree = "<group>"; };
 		D6108BFA21EAE99E00B2BFE4 /* DevicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesViewController.swift; sourceTree = "<group>"; };
-		D6108BFD21EAF17600B2BFE4 /* TPLinkDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPLinkDevice.swift; sourceTree = "<group>"; };
-		D6108C0021EAF1AA00B2BFE4 /* BulbDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulbDevice.swift; sourceTree = "<group>"; };
-		D6108C0221EAF1C300B2BFE4 /* TPLinkHS100.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPLinkHS100.swift; sourceTree = "<group>"; };
-		D6108C0421EAF1E400B2BFE4 /* TPLinkLB100.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPLinkLB100.swift; sourceTree = "<group>"; };
-		D6108C0621EAF1F300B2BFE4 /* TPLinkDeviceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPLinkDeviceFactory.swift; sourceTree = "<group>"; };
 		D62730F821E16D0D00247E6D /* tplink-cloud-touchbar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tplink-cloud-touchbar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D62730FB21E16D0D00247E6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D62730FD21E16D0F00247E6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -43,7 +30,6 @@
 		D627310221E16D0F00247E6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D627310321E16D0F00247E6D /* tplink_cloud_touchbar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tplink_cloud_touchbar.entitlements; sourceTree = "<group>"; };
 		D627310921E16DD800247E6D /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
-		D627310E21E28BB800247E6D /* TPLinkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPLinkClient.swift; sourceTree = "<group>"; };
 		D627311021E29FD800247E6D /* tplink-cloud-touchbar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "tplink-cloud-touchbar.entitlements"; sourceTree = "<group>"; };
 		D8CCAE7A66618972E6EA5100 /* libPods-tplink-cloud-touchbar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-tplink-cloud-touchbar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -68,14 +54,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D6108BF221E3237600B2BFE4 /* extensions */ = {
-			isa = PBXGroup;
-			children = (
-				D6108BF321E3238700B2BFE4 /* String+Extensions.swift */,
-			);
-			path = extensions;
-			sourceTree = "<group>";
-		};
 		D6108BF721EA8B7D00B2BFE4 /* ui */ = {
 			isa = PBXGroup;
 			children = (
@@ -85,26 +63,6 @@
 				D6108BFA21EAE99E00B2BFE4 /* DevicesViewController.swift */,
 			);
 			path = ui;
-			sourceTree = "<group>";
-		};
-		D6108BFC21EAF16700B2BFE4 /* devices */ = {
-			isa = PBXGroup;
-			children = (
-				D6108BFD21EAF17600B2BFE4 /* TPLinkDevice.swift */,
-				D6108C0021EAF1AA00B2BFE4 /* BulbDevice.swift */,
-				D6108C0221EAF1C300B2BFE4 /* TPLinkHS100.swift */,
-				D6108C0421EAF1E400B2BFE4 /* TPLinkLB100.swift */,
-				D6108C0621EAF1F300B2BFE4 /* TPLinkDeviceFactory.swift */,
-			);
-			path = devices;
-			sourceTree = "<group>";
-		};
-		D6108BFF21EAF19700B2BFE4 /* api */ = {
-			isa = PBXGroup;
-			children = (
-				D627310E21E28BB800247E6D /* TPLinkClient.swift */,
-			);
-			path = api;
 			sourceTree = "<group>";
 		};
 		D62730EF21E16D0D00247E6D = {
@@ -130,7 +88,6 @@
 			children = (
 				D6108BF721EA8B7D00B2BFE4 /* ui */,
 				D627311021E29FD800247E6D /* tplink-cloud-touchbar.entitlements */,
-				D627310D21E28B7000247E6D /* core */,
 				D62730FB21E16D0D00247E6D /* AppDelegate.swift */,
 				D62730FD21E16D0F00247E6D /* Assets.xcassets */,
 				D62730FF21E16D0F00247E6D /* MainMenu.xib */,
@@ -138,16 +95,6 @@
 				D627310321E16D0F00247E6D /* tplink_cloud_touchbar.entitlements */,
 			);
 			path = "tplink-cloud-touchbar";
-			sourceTree = "<group>";
-		};
-		D627310D21E28B7000247E6D /* core */ = {
-			isa = PBXGroup;
-			children = (
-				D6108BFF21EAF19700B2BFE4 /* api */,
-				D6108BFC21EAF16700B2BFE4 /* devices */,
-				D6108BF221E3237600B2BFE4 /* extensions */,
-			);
-			path = core;
 			sourceTree = "<group>";
 		};
 		EE6EA22289B9C61B23899657 /* Pods */ = {
@@ -257,17 +204,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6108BFB21EAE99E00B2BFE4 /* DevicesViewController.swift in Sources */,
-				D6108BF421E3238700B2BFE4 /* String+Extensions.swift in Sources */,
-				D6108C0321EAF1C300B2BFE4 /* TPLinkHS100.swift in Sources */,
 				D62730FC21E16D0D00247E6D /* AppDelegate.swift in Sources */,
 				D6108BF621E45F7D00B2BFE4 /* DevicePopoverTouchBar.swift in Sources */,
-				D6108C0121EAF1AA00B2BFE4 /* BulbDevice.swift in Sources */,
-				D627310F21E28BB800247E6D /* TPLinkClient.swift in Sources */,
 				D6108BF921EA8B8A00B2BFE4 /* IconTextItemView.swift in Sources */,
 				D627310A21E16DD800247E6D /* WindowController.swift in Sources */,
-				D6108BFE21EAF17600B2BFE4 /* TPLinkDevice.swift in Sources */,
-				D6108C0721EAF1F300B2BFE4 /* TPLinkDeviceFactory.swift in Sources */,
-				D6108C0521EAF1E400B2BFE4 /* TPLinkLB100.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
