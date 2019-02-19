@@ -5,25 +5,17 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.8)
-  - TPLinkCloudClient (from `https://github.com/slmosl/TPLinkCloudClient.git`)
+  - TPLinkCloudClient
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
-
-EXTERNAL SOURCES:
-  TPLinkCloudClient:
-    :git: https://github.com/slmosl/TPLinkCloudClient.git
-
-CHECKOUT OPTIONS:
-  TPLinkCloudClient:
-    :commit: 5d4091bdaf5fe2573333ae981ab2befa530fcff0
-    :git: https://github.com/slmosl/TPLinkCloudClient.git
+    - TPLinkCloudClient
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   TPLinkCloudClient: 65a0dda262f6a51f2845020d2aaa636818ccd74b
 
-PODFILE CHECKSUM: 2eae15250566cd085d8e55c7a544a9f5a20237e6
+PODFILE CHECKSUM: 5b2ce06d074eff2e54b11b473a3d3d993072c313
 
 COCOAPODS: 1.5.3
