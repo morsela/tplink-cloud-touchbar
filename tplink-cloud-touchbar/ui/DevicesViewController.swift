@@ -48,7 +48,7 @@ class DevicesViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        client.login(user: "morsela@gmail.com", password: "liatmor1", termId: "") { [weak self] _ in
+        client.login(user: "", password: "", termId: "") { [weak self] _ in
             self?.refreshDevices()
         }
     }
